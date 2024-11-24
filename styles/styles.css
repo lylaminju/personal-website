@@ -1,0 +1,102 @@
+@import url("./reset.css");
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  min-height: 100vh;
+  font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+  font-size: 1.2rem;
+}
+
+section,
+footer {
+  max-width: 800px;
+  width: 100%;
+}
+
+header {
+  height: 50px;
+}
+
+section {
+  min-height: 240px;
+  height: auto;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 4vw, 2.7rem);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(1.2rem, 3vw, 2.3rem);
+}
+
+h3 {
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  font-weight: 600;
+}
+
+ul {
+  margin: 5px 0px;
+  padding-left: 0px;
+}
+
+li {
+  list-style: none;
+}
+
+.project-box {
+  margin: 5px 0;
+
+  .explanation {
+    font-weight: 600;
+  }
+}
+
+footer {
+  margin-top: 20px;
+  padding: 20px 0px;
+  height: auto;
+  border-top: 1px solid #ccc;
+  text-align: center;
+}
+
+footer a {
+  margin: 0 5px;
+}
+
+a {
+  color: navy;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 1rem;
+  }
+
+  section,
+  footer {
+    max-width: 100%;
+    padding: 5px 10px;
+  }
+
+  section {
+    min-height: 130px;
+  }
+
+  h1 {
+    font-size: clamp(1.7rem, 5vw, 2.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+  }
+
+  h3 {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+  }
+}
