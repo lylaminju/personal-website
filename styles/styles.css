@@ -7,18 +7,16 @@ body {
   align-items: center;
   padding-top: 20px;
   min-height: 100vh;
+  background-color: #1e1e1e;
   font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
   font-size: 1.2rem;
+  color: #e0e0e0;
 }
 
 section,
 footer {
   max-width: 800px;
   width: 100%;
-}
-
-header {
-  height: 50px;
 }
 
 section {
@@ -29,6 +27,7 @@ section {
 h1 {
   font-size: clamp(1.5rem, 4vw, 2.7rem);
   font-weight: 800;
+  color: #ffffff;
 }
 
 h2 {
@@ -70,7 +69,7 @@ footer a {
 }
 
 a {
-  color: navy;
+  color: #4a90e2;
 }
 
 @media (max-width: 768px) {
