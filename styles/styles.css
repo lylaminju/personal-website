@@ -68,15 +68,24 @@ li {
 }
 
 footer {
+  display: flex;
+  justify-content: center;
+  column-gap: 0.8rem;
   margin-top: 40px;
   padding: 20px 0px;
   height: auto;
   border-top: 1px solid #ccc;
-  text-align: center;
 }
 
 footer a {
   margin: 0 5px;
+  font-size: 0;
+}
+
+.footer-icon {
+  width: 22px;
+  height: 22px;
+  fill: #aaa;
 }
 
 a {
