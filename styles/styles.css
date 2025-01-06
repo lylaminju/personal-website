@@ -19,12 +19,6 @@ footer {
   width: 100%;
 }
 
-header {
-  a {
-    color: #ccc;
-  }
-}
-
 section {
   min-height: 240px;
   height: auto;
@@ -69,6 +63,23 @@ li {
   }
 }
 
+.title-row {
+  display: flex;
+  align-items: baseline;
+
+  h3 {
+    margin: 0 1rem 0 0;
+  }
+
+  ul {
+    display: flex;
+
+    li {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
 .about-me-keyword {
   font-size: 1.6rem;
   font-weight: 600;
@@ -96,7 +107,9 @@ footer a {
 }
 
 a {
-  color: #dddddd;
+  color: #ccc;
+  text-underline-offset: 0.1rem;
+  text-decoration-thickness: 1px;
 }
 
 @media (max-width: 768px) {
