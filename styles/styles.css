@@ -43,10 +43,6 @@ h2 {
 h3 {
   font-size: clamp(1rem, 2.5vw, 2rem);
   font-weight: 600;
-  a {
-    text-underline-offset: 3px;
-    text-decoration-thickness: 1px;
-  }
 }
 
 ul {
@@ -59,10 +55,17 @@ li {
 }
 
 .project-box {
-  margin: 5px 0;
+  margin: 15px 0;
 
   .explanation {
     font-weight: 600;
+  }
+
+  .link-icon {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    fill: #aaa;
   }
 }
 
