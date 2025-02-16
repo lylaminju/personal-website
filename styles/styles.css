@@ -7,10 +7,10 @@ body {
   align-items: center;
   padding-top: 20px;
   min-height: 100vh;
-  background-color: #1e1e1e;
+  background-color: #f7f7f7f7;
   font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
   font-size: 1.2rem;
-  color: #e0e0e0;
+  color: #1e1e1e;
 }
 
 section,
@@ -26,8 +26,8 @@ section {
 
 h1 {
   font-size: clamp(1.5rem, 4vw, 2.7rem);
-  font-weight: 700;
-  color: #ffffff;
+  font-weight: 800;
+  color: #aaaab7;
 }
 
 h2 {
@@ -59,7 +59,7 @@ li {
     display: inline-block;
     width: 22px;
     height: 22px;
-    fill: #aaa;
+    fill: #9b9ba6;
   }
 }
 
@@ -92,7 +92,7 @@ footer {
   margin-top: 40px;
   padding: 20px 0px;
   height: auto;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #9b9ba6;
 }
 
 footer a {
@@ -103,11 +103,11 @@ footer a {
 .footer-icon {
   width: 22px;
   height: 22px;
-  fill: #aaa;
+  fill: #9b9ba6;
 }
 
 a {
-  color: #ccc;
+  color: #9b9ba6;
   text-underline-offset: 0.1rem;
   text-decoration-thickness: 1px;
 }
