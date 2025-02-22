@@ -14,7 +14,7 @@ body {
 }
 
 section,
-footer {
+app-footer {
   max-width: 900px;
   width: 100%;
 }
