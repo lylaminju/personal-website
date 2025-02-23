@@ -37,25 +37,22 @@ function createProjectBox(project) {
               `
               : ''
           }
+          ${
+            project.youtube
+              ? `
+                  <li>
+                      <a target="_blank" href="${project.youtube}" onclick="event.stopPropagation()">
+                      <svg class="link-icon">
+                          <use href="../assets/youtube.svg#icon"></use>
+                      </svg>
+                      </a>
+                  </li>
+              `
+              : ''
+          }
         </ul>
       </div>
       <p class="explanation">${project.description}</p>
-      ${
-        project.youtube
-          ? `
-              <iframe
-                  width="560"
-                  height="315"
-                  src="${project.youtube}"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-              ></iframe>
-          `
-          : ''
-      }
       <p class="tech-stack">⚙️ ${project.techStack}</p>
     </div>
   `;
