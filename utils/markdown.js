@@ -75,39 +75,60 @@ export function markdownToHtml(markdown) {
   );
 
   // Then, process list items and create nested structure
+  let currentOrderedList = null;
   for (let i = 0; i < listItemCount; i++) {
     const item = listItems[i];
-    const li = item.isOrdered
-      ? `<li value="${item.value}">${item.content}</li>`
-      : `<li>${item.content}</li>`;
 
-    // Look ahead to determine if we need to start a new sublist
-    let sublist = '';
-    if (i + 1 < listItemCount && listItems[i + 1].indent > item.indent) {
+    if (item.isOrdered) {
+      // Start a new ordered list if we don't have one
+      if (!currentOrderedList) {
+        currentOrderedList = [];
+      }
+      let li = `<li value="${item.value}">${item.content}`;
+
+      // Look ahead for nested unordered items
       let j = i + 1;
       const subItems = [];
-      const isSubOrdered = listItems[j].isOrdered;
-
-      while (j < listItemCount && listItems[j].indent > item.indent) {
-        subItems.push(
-          listItems[j].isOrdered
-            ? `<li value="${listItems[j].value}">${listItems[j].content}</li>`
-            : `<li>${listItems[j].content}</li>`
-        );
+      while (
+        j < listItemCount &&
+        listItems[j].indent > item.indent &&
+        !listItems[j].isOrdered
+      ) {
+        subItems.push(`<li>${listItems[j].content}</li>`);
         j++;
       }
 
-      sublist = isSubOrdered
-        ? `\n<ol>${subItems.join('\n')}</ol>\n`
-        : `\n<ul>${subItems.join('\n')}</ul>\n`;
+      // Add nested unordered list if we found sub-items
+      if (subItems.length > 0) {
+        li += `\n<ul>${subItems.join('\n')}</ul>`;
+      }
 
-      // Skip processed subitems
-      i = j - 1;
+      li += '</li>';
+      currentOrderedList.push(li);
+      i = j - 1; // Skip processed subitems
     }
 
-    const list = item.isOrdered ? 'ol' : 'ul';
-    const replacement = `\n<${list}>\n${li}${sublist}</${list}>\n`;
-    html = html.replace(`__LIST_ITEM_${i}__`, replacement);
+    // Close the ordered list when we reach an unordered item at base level
+    // or the end of the items
+    if ((!item.isOrdered && item.indent === 0) || i === listItemCount - 1) {
+      if (currentOrderedList) {
+        const replacement = `\n<ol>\n${currentOrderedList.join('\n')}</ol>\n`;
+        html = html.replace(
+          new RegExp(`__LIST_ITEM_${i - currentOrderedList.length + 1}__`),
+          replacement
+        );
+        // Clear remaining placeholders for the items we processed
+        for (let k = 1; k < currentOrderedList.length; k++) {
+          html = html.replace(
+            new RegExp(
+              `__LIST_ITEM_${i - currentOrderedList.length + 1 + k}__`
+            ),
+            ''
+          );
+        }
+        currentOrderedList = null;
+      }
+    }
   }
 
   // Make sure all list placeholders are removed before paragraph conversion
