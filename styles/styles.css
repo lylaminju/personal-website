@@ -46,14 +46,29 @@ h3 {
 
 ul {
   margin: 5px 0px;
-}
-
-li {
-  list-style: none;
+  padding-left: 1.5rem;
 }
 
 .project-box {
-  margin-bottom: 1.4rem;
+  margin: 1rem 0;
+  padding: 5px 12px;
+  border: 1px solid #e8e8ed;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  background-color: #ffffff;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+
+    cursor: pointer;
+  }
+
+  .title-row ul {
+    padding: 0;
+    list-style: none;
+  }
 
   .link-icon {
     display: inline-block;
@@ -106,7 +121,7 @@ footer a {
   fill: #9b9ba6;
 }
 
-a {
+.link {
   color: #9b9ba6;
   text-underline-offset: 0.1rem;
   text-decoration-thickness: 1px;
