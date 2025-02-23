@@ -1,14 +1,18 @@
 export const projects = [
   {
     title: 'Re:Mem',
+    emoji: '📝',
+    image: '../assets/project-images/remem-calendar.png',
     github: 'https://github.com/daily-journey/remem',
     website: 'https://daily-journey.github.io/remem',
     description:
-      'A review note that helps people memorize things efficiently by providing an optimized review cycle',
+      'Review note that helps people memorize things efficiently by providing an optimized review cycle',
     techStack: 'Kotlin, Spring Boot, MySQL, TypeScript, React',
   },
   {
     title: 'Climick',
+    emoji: '🧗',
+    image: '../assets/project-images/climick-preview.png',
     github: 'https://github.com/pmjuu/climick-client',
     website: 'https://climick.netlify.app',
     description: 'Climbing web game without external physics libraries',
@@ -18,6 +22,8 @@ export const projects = [
   },
   {
     title: 'Reactree',
+    emoji: '🌳',
+    image: '../assets/project-images/reactree-preview.png',
     github: 'https://github.com/pmjuu/reactree-frontend',
     description:
       'Electron app that visualizes the component hierarchy of a React project',
