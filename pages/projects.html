@@ -12,126 +12,12 @@
 
     <section>
       <h1>Projects</h1>
-      <div
-        class="project-box"
-        onclick="window.open('https://daily-journey.github.io/remem', '_blank')"
-      >
-        <div class="title-row">
-          <h3>Re:Mem</h3>
-          <ul>
-            <li>
-              <a
-                target="_blank"
-                href="https://github.com/daily-journey/remem"
-                onclick="event.stopPropagation()"
-              >
-                <svg class="link-icon">
-                  <use href="../assets/github.svg#icon"></use>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a
-                target="_blank"
-                href="https://daily-journey.github.io/remem"
-                onclick="event.stopPropagation()"
-              >
-                <svg class="link-icon">
-                  <use href="../assets/web.svg#icon"></use>
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <p class="explanation">
-          A review note that helps people memorize things efficiently by
-          providing an optimized review cycle
-        </p>
-        <p class="tech-stack">Kotlin, Spring Boot, MySQL, TypeScript, React</p>
-      </div>
-      <div
-        class="project-box"
-        onclick="window.open('https://climick.netlify.app', '_blank')"
-      >
-        <div class="title-row">
-          <h3>Climick</h3>
-          <ul>
-            <li>
-              <a
-                target="_blank"
-                href="https://github.com/pmjuu/climick-client"
-                onclick="event.stopPropagation()"
-              >
-                <svg class="link-icon">
-                  <use href="../assets/github.svg#icon"></use>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a
-                target="_blank"
-                href="https://climick.netlify.app"
-                onclick="event.stopPropagation()"
-              >
-                <svg class="link-icon">
-                  <use href="../assets/web.svg#icon"></use>
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <p class="explanation">
-          Climbing web game without external physics libraries
-        </p>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/w5qo4VSKXTo?si=VyZeqBd7YqCdg_VU"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
-        <br />
-        <p class="tech-stack">
-          JavaScript, React, Pixi.js, react-router, Redux, styled-components,
-          Node.js, Express.js, MongoDB, Jest
-        </p>
-      </div>
-      <div
-        class="project-box"
-        onclick="window.open('https://github.com/pmjuu/reactree-frontend', '_blank')"
-      >
-        <div class="title-row">
-          <h3>Reactree</h3>
-          <ul>
-            <li>
-              <a
-                target="_blank"
-                href="https://github.com/pmjuu/reactree-frontend"
-                onclick="event.stopPropagation()"
-              >
-                <svg class="link-icon">
-                  <use href="../assets/github.svg#icon"></use>
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <p class="explanation">
-          Electron app that visualizes the component hierarchy of a React
-          project
-        </p>
-        <p class="tech-stack">
-          JavaScript, React, Electron, d3.js, Redux, styled-components, Jest,
-          playwright
-        </p>
-      </div>
+      <div id="projects-container"></div>
     </section>
 
     <app-footer></app-footer>
 
     <script type="module" src="../index.js"></script>
+    <script type="module" src="../utils/renderProjects.js"></script>
   </body>
 </html>
