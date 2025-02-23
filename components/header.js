@@ -15,8 +15,8 @@ class Header extends HTMLElement {
     this.innerHTML = `
       <header>
         <a href="${basePath}index.html">Home</a>
-        <a href="${basePath}pages/projects.html">Projects</a>
         <a href="${basePath}pages/blog.html">Blog</a>
+        <a href="${basePath}pages/projects.html">Projects</a>
         <a href="${basePath}pages/about.html">About</a>
       </header>
     `;

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lyla</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="icon" type="image/png" href="../assets/profile character.ico" />
+  </head>
+  <body>
+    <app-header></app-header>
+
+    <section>
+      <h1>Projects</h1>
+      <div class="project-box">
+        <div class="title-row">
+          <h3>Re:Mem</h3>
+          <ul>
+            <li>
+              <a target="blank" href="https://github.com/daily-journey/remem">
+                <svg class="link-icon">
+                  <use href="./assets/github.svg#icon"></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a target="blank" href="https://daily-journey.github.io/remem">
+                <svg class="link-icon">
+                  <use href="./assets/web.svg#icon"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <p class="explanation">
+          A review note that helps people memorize things efficiently by
+          providing an optimized review cycle
+        </p>
+        <p class="tech-stack">Kotlin, Spring Boot, MySQL, TypeScript, React</p>
+      </div>
+      <div class="project-box">
+        <div class="title-row">
+          <h3>Climick</h3>
+          <ul>
+            <li>
+              <a target="blank" href="https://github.com/pmjuu/climick-client">
+                <svg class="link-icon">
+                  <use href="./assets/github.svg#icon"></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a target="blank" href="https://climick.netlify.app">
+                <svg class="link-icon">
+                  <use href="./assets/web.svg#icon"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <p class="explanation">
+          Climbing web game without external physics libraries
+        </p>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/w5qo4VSKXTo?si=VyZeqBd7YqCdg_VU"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+        <br />
+        <p class="tech-stack">
+          JavaScript, React, Pixi.js, react-router, Redux, styled-components,
+          Node.js, Express.js, MongoDB, Jest
+        </p>
+      </div>
+      <div class="project-box">
+        <div class="title-row">
+          <h3>Reactree</h3>
+          <ul>
+            <li>
+              <a
+                target="blank"
+                href="https://github.com/pmjuu/reactree-frontend"
+              >
+                <svg class="link-icon">
+                  <use href="./assets/github.svg#icon"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <p class="explanation">
+          Electron app that visualizes the component hierarchy of a React
+          project
+        </p>
+        <p class="tech-stack">
+          JavaScript, React, Electron, d3.js, Redux, styled-components, Jest,
+          playwright
+        </p>
+      </div>
+    </section>
+
+    <app-footer></app-footer>
+
+    <script type="module" src="../index.js"></script>
+  </body>
+</html>
