@@ -51,88 +51,87 @@ export function markdownToHtml(markdown) {
   html = html.replace(/!\[([^\]]+)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">');
 
   // Convert unordered lists (-, *, +) and ordered lists (1. 2. etc)
-  const listItems = [];
-  let listItemCount = 0;
+  const DEFAULT_INDENT = 2;
+  // First, handle unordered and ordered lists with indentation
+  html = html.replace(/^( *)[-*+] (.+)$/gm, (match, indent, content) => {
+    const level = indent.length / DEFAULT_INDENT;
+    return `<li class="ul-item" data-level="${level}">${content}</li>`;
+  });
 
-  // First, collect all list items with their indentation level
+  html = html.replace(/^( *)\d+\. (.+)$/gm, (match, indent, content) => {
+    const level = indent.length / DEFAULT_INDENT;
+    return `<li class="ol-item" data-level="${level}">${content}</li>`;
+  });
+
+  // Process nested lists
+  const processNestedList = (items, type, level = 0) => {
+    let result = `<${type}>`;
+    let i = 0;
+    while (i < items.length) {
+      const match = items[i].match(
+        /<li class="([uo]l)-item" data-level="(\d+)">(.*?)<\/li>/
+      );
+      if (!match) {
+        i++;
+        continue;
+      }
+
+      const [_, itemType, itemLevel, content] = match;
+      const currentLevel = parseInt(itemLevel);
+      if (currentLevel === level) {
+        result += `<li>${content}`;
+
+        // Look ahead for nested items at ANY higher level
+        const subItems = [];
+        let j = i + 1;
+        while (j < items.length) {
+          const nextMatch = items[j].match(
+            /<li class="[uo]l-item" data-level="(\d+)">/
+          );
+          if (nextMatch && parseInt(nextMatch[1]) > level) {
+            subItems.push(items[j]);
+            j++;
+          } else {
+            break;
+          }
+        }
+
+        if (subItems.length > 0) {
+          const subType = subItems[0].includes('ul-item') ? 'ul' : 'ol';
+          result += processNestedList(subItems, subType, level + 1);
+        }
+        result += '</li>';
+        i = j;
+      } else {
+        i++;
+      }
+    }
+    result += `</${type}>`;
+    return result;
+  };
+
+  // Find consecutive list items and process them
   html = html.replace(
-    /^(\s*)([-+*]|\d+\.)\s+(.*)/gm,
-    (match, indent, marker, content) => {
-      const placeholder = `__LIST_ITEM_${listItemCount}__`;
-      const isOrdered = /^\d+\./.test(marker);
-      const value = isOrdered ? marker.replace('.', '') : '';
+    /(?:^|\n)((?:<li class="[uo]l-item".*?<\/li>\n?)+)(?=\n|$)/g,
+    (match, listGroup) => {
+      const items = listGroup.match(/(<li class="[uo]l-item".*?<\/li>)/g) || [];
+      if (items.length === 0) return match;
 
-      listItems[listItemCount] = {
-        content,
-        indent: indent.length,
-        isOrdered,
-        value,
-      };
+      // Determine the type of the root list based on the first item at level 0
+      const firstRootItem = items.find((item) =>
+        item.includes('data-level="0"')
+      );
+      if (!firstRootItem) return match;
 
-      listItemCount++;
-      return placeholder;
+      const isOrdered = firstRootItem.includes('ol-item');
+      const rootType = isOrdered ? 'ol' : 'ul';
+
+      return processNestedList(items, rootType);
     }
   );
 
-  // Then, process list items and create nested structure
-  let currentOrderedList = null;
-  for (let i = 0; i < listItemCount; i++) {
-    const item = listItems[i];
-
-    if (item.isOrdered) {
-      // Start a new ordered list if we don't have one
-      if (!currentOrderedList) {
-        currentOrderedList = [];
-      }
-      let li = `<li value="${item.value}">${item.content}`;
-
-      // Look ahead for nested unordered items
-      let j = i + 1;
-      const subItems = [];
-      while (
-        j < listItemCount &&
-        listItems[j].indent > item.indent &&
-        !listItems[j].isOrdered
-      ) {
-        subItems.push(`<li>${listItems[j].content}</li>`);
-        j++;
-      }
-
-      // Add nested unordered list if we found sub-items
-      if (subItems.length > 0) {
-        li += `\n<ul>${subItems.join('\n')}</ul>`;
-      }
-
-      li += '</li>';
-      currentOrderedList.push(li);
-      i = j - 1; // Skip processed subitems
-    }
-
-    // Close the ordered list when we reach an unordered item at base level
-    // or the end of the items
-    if ((!item.isOrdered && item.indent === 0) || i === listItemCount - 1) {
-      if (currentOrderedList) {
-        const replacement = `\n<ol>\n${currentOrderedList.join('\n')}</ol>\n`;
-        html = html.replace(
-          new RegExp(`__LIST_ITEM_${i - currentOrderedList.length + 1}__`),
-          replacement
-        );
-        // Clear remaining placeholders for the items we processed
-        for (let k = 1; k < currentOrderedList.length; k++) {
-          html = html.replace(
-            new RegExp(
-              `__LIST_ITEM_${i - currentOrderedList.length + 1 + k}__`
-            ),
-            ''
-          );
-        }
-        currentOrderedList = null;
-      }
-    }
-  }
-
-  // Make sure all list placeholders are removed before paragraph conversion
-  html = html.replace(/__LIST_ITEM_\d+__/g, '');
+  // Clean up the temporary attributes
+  html = html.replace(/class="[uo]l-item"\s*data-level="\d+"/g, '');
 
   // Convert paragraphs (text separated by blank lines)
   html = html.replace(/^(?!<(?:h[1-6]|ul|ol|li))(.*$)/gm, (match) => {
