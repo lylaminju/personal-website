@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lyla</title>
     <link rel="stylesheet" href="../../../styles/styles.css" />
+    <link rel="stylesheet" href="../../../styles/blog-content.css" />
     <link
       rel="icon"
       type="image/png"
       href="../../../assets/profile character.ico"
     />
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   </head>
   <body>
     <app-header></app-header>
@@ -22,28 +22,10 @@
     <app-footer></app-footer>
 
     <script type="module" src="../../../index.js"></script>
-    <script>
-      async function loadMarkdown() {
-        const markdownPath = `./query-limit-1.md`;
+    <script type="module">
+      import { loadMarkdown } from '../../../utils/loadMarkdown.js';
 
-        try {
-          const response = await fetch(markdownPath);
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-
-          const markdown = await response.text();
-          const html = marked.parse(markdown);
-
-          document.getElementById('blog-content').innerHTML = html;
-        } catch (error) {
-          console.error('Error loading markdown:', error);
-          document.getElementById('blog-content').innerHTML =
-            '<p style="color: red;">Failed to load content.</p>';
-        }
-      }
-
-      loadMarkdown();
+      loadMarkdown('./query-limit-1.md', 'blog-content');
     </script>
   </body>
 </html>

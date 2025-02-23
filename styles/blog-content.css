@@ -1,0 +1,139 @@
+/* Typography */
+h1 {
+  font-size: 2.5rem;
+  margin: 2rem 0 1.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 1.8rem 0 1.2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1rem;
+}
+
+p {
+  line-height: 1.7;
+  margin: 1rem 0;
+}
+
+/* Lists */
+ul,
+ol {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+ol > li {
+  list-style-type: decimal;
+}
+
+ul > li {
+  list-style-type: disc;
+}
+
+ol li,
+ul li {
+  margin: 0.8rem 0;
+  line-height: 1.6;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+}
+
+/* Emphasis */
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: 600;
+}
+
+blockquote {
+  border-left: 4px solid #dfe2e5;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  color: #6a737d;
+}
+
+/* Horizontal rule */
+hr {
+  border: 0;
+  border-top: 1px solid #dfe2e5;
+  margin: 2rem 0;
+}
+
+/* Code blocks */
+pre {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+  overflow-x: auto;
+  background-color: #1e1e1e;
+  color: #f7f7f7;
+
+  code {
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    background-color: transparent;
+  }
+
+  p {
+    line-height: 1.4;
+    margin: 0;
+  }
+}
+
+/* Code inside headings inherits heading styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  code {
+    background-color: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+  }
+}
+
+code {
+  font-size: 0.9rem;
+  background-color: #e6e6e6;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+/* Language-specific syntax highlighting */
+.language-js {
+  .keyword {
+    color: #569cd6;
+  }
+
+  .string {
+    color: #ce9178;
+  }
+
+  .function {
+    color: #dcdcaa;
+  }
+
+  .number {
+    color: #b5cea8;
+  }
+
+  .comment {
+    color: #6a9955;
+    font-style: italic;
+  }
+}
