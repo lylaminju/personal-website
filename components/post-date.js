@@ -19,12 +19,12 @@ function createPostDate() {
 }
 
 export default function registerPostDate() {
-  const targetSection = document.querySelector('#blog-content').parentElement;
+  const targetSection = document.querySelector('#blog-content')?.parentElement;
 
-  if (targetSection.children.length > 1) {
+  if (targetSection?.children.length !== 1) {
     return;
   }
-  
+
   const postDate = createPostDate();
 
   targetSection.insertBefore(postDate, targetSection.firstChild);
