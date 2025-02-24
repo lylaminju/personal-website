@@ -37,6 +37,9 @@ export function markdownToHtml(markdown) {
     return placeholder;
   });
 
+  // Convert inline code (`) but not inside code blocks
+  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+
   // Restore code blocks
   codeBlocks.forEach((block, i) => {
     html = html.replace(`__CODE_BLOCK_${i}__`, block);
