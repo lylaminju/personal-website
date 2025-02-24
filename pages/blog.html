@@ -13,22 +13,34 @@
     <section>
       <h1>Blog</h1>
 
-      <ul id="posts-container">
-        <li>
-          <a href="./posts/2025-02-22-query-limit-1/">
-            Why use `LIMIT 1` even if only one result is expected?
-          </a>
-        </li>
-        <li>
-          <a href="./posts/2025-02-22-parsing-md-to-html/">
-            Parsing Markdown to HTML
-          </a>
-        </li>
-      </ul>
+      <ul id="posts-container"></ul>
     </section>
 
     <app-footer></app-footer>
 
+    <script>
+      async function renderPosts() {
+        const response = await fetch('../data/posts.json');
+        const data = await response.json();
+        const container = document.getElementById('posts-container');
+
+        // Sort posts by date in reverse order
+        const sortedPosts = data.posts.sort(
+          (a, b) => new Date(b.date) - new Date(a.date)
+        );
+
+        sortedPosts.forEach((post) => {
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <span class="post-date">${post.date}</span>
+            <a href="./posts/${post.path}">${post.title}</a>
+          `;
+          container.appendChild(li);
+        });
+      }
+
+      renderPosts();
+    </script>
     <script type="module" src="../index.js"></script>
   </body>
 </html>
