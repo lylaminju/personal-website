@@ -30,19 +30,18 @@
 
     <app-footer></app-footer>
 
-    <script type="module" src="../../../index.js"></script>
     <script type="module">
       import { loadMarkdown } from '../../../utils/loadMarkdown.js';
 
       async function displayContent() {
         try {
           // Fetch and display raw markdown
-          const response = await fetch('./parsing-md-to-html.md');
+          const response = await fetch('./index.md');
           const markdown = await response.text();
           document.getElementById('raw-markdown').textContent = markdown;
 
           // Parse and display HTML
-          await loadMarkdown('./parsing-md-to-html.md', 'blog-content');
+          await loadMarkdown('./index.md', 'blog-content');
         } catch (error) {
           console.error('Error loading content:', error);
         }
@@ -50,5 +49,6 @@
 
       displayContent();
     </script>
+    <script type="module" src="../../../index.js"></script>
   </body>
 </html>

@@ -21,11 +21,11 @@
 
     <app-footer></app-footer>
 
-    <script type="module" src="../../../index.js"></script>
     <script type="module">
       import { loadMarkdown } from '../../../utils/loadMarkdown.js';
 
-      loadMarkdown('./query-limit-1.md', 'blog-content');
+      await loadMarkdown('./index.md', 'blog-content');
     </script>
+    <script type="module" src="../../../index.js"></script>
   </body>
 </html>
