@@ -143,6 +143,10 @@ footer a {
     width: 100%;
   }
 
+  .about-me-keyword {
+    font-size: 1.4rem;
+  }
+
   footer {
     max-width: 100%;
     padding: 15px 0px;

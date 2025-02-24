@@ -144,3 +144,20 @@ code {
     font-style: italic;
   }
 }
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+    margin: 1.5rem 0 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin: 1.3rem 0 1rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin: 1.2rem 0 0.8rem;
+  }
+}
