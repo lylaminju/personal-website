@@ -14,10 +14,12 @@ class Header extends HTMLElement {
 
     this.innerHTML = `
       <header>
-        <a class="link" href="${basePath}index.html">Home</a>
-        <a class="link" href="${basePath}pages/blog.html">Blog</a>
-        <a class="link" href="${basePath}pages/projects.html">Projects</a>
-        <a class="link" href="${basePath}pages/about.html">About</a>
+        <nav>
+          <a class="link" href="${basePath}index.html">Home</a>
+          <a class="link" href="${basePath}pages/blog.html">Blog</a>
+          <a class="link" href="${basePath}pages/projects.html">Projects</a>
+          <a class="link" href="${basePath}pages/about.html">About</a>
+        </nav>
       </header>
     `;
   }
