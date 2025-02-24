@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lyla</title>
+    <link rel="stylesheet" href="../../../styles/styles.css" />
+    <link rel="stylesheet" href="../../../styles/blog-content.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../../assets/profile character.ico"
+    />
+  </head>
+  <body>
+    <app-header></app-header>
+
+    <section style="display: flex; gap: 2rem; padding: 1rem; min-width: 1400px">
+      <div
+        id="raw-markdown"
+        style="
+          flex: 1;
+          white-space: pre-wrap;
+          margin-top: 3rem;
+          font-family: monospace;
+        "
+      ></div>
+      <div id="blog-content" style="flex: 1"></div>
+    </section>
+
+    <app-footer></app-footer>
+
+    <script type="module" src="../../../index.js"></script>
+    <script type="module">
+      import { loadMarkdown } from '../../../utils/loadMarkdown.js';
+
+      async function displayContent() {
+        try {
+          // Fetch and display raw markdown
+          const response = await fetch('./parsing-md-to-html.md');
+          const markdown = await response.text();
+          document.getElementById('raw-markdown').textContent = markdown;
+
+          // Parse and display HTML
+          await loadMarkdown('./parsing-md-to-html.md', 'blog-content');
+        } catch (error) {
+          console.error('Error loading content:', error);
+        }
+      }
+
+      displayContent();
+    </script>
+  </body>
+</html>

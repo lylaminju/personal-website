@@ -3,18 +3,30 @@ export function markdownToHtml(markdown) {
 
   let html = markdown;
 
+  // Escape HTML special characters except in code blocks
+  html = html
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+
   // Convert code blocks (```) with language support
   const noPtag = 'NO-P-TAG';
   const codeBlocks = [];
   let codeBlockCount = 0;
-  html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
+  html = html.replace(/^```(\w+)?\n([\s\S]*?)^```/gm, (match, lang, code) => {
     const placeholder = `__CODE_BLOCK_${codeBlockCount}__`;
     const language = lang ? ` class="language-${lang}"` : '';
     // Add NO_P_TAG to each line in code blocks
     const cleanCode = code
       .trim()
       .split('\n')
-      .map((line) => `${noPtag}${line}`)
+      .map((line) => {
+        return `${noPtag}${line}`
+          .replace(/&quot;/g, '"')
+          .replace(/&#039;/g, "'");
+      })
       .join('\n');
 
     codeBlocks[
@@ -25,9 +37,6 @@ export function markdownToHtml(markdown) {
     return placeholder;
   });
 
-  // Convert inline code (`) but not inside code blocks
-  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
-
   // Restore code blocks
   codeBlocks.forEach((block, i) => {
     html = html.replace(`__CODE_BLOCK_${i}__`, block);
@@ -37,18 +46,6 @@ export function markdownToHtml(markdown) {
   html = html.replace(/^### (.*$)/gm, '<h3>$1</h3>');
   html = html.replace(/^## (.*$)/gm, '<h2>$1</h2>');
   html = html.replace(/^# (.*$)/gm, '<h1>$1</h1>');
-
-  // Convert emphasis text (**, __, *, _)
-  html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-  html = html.replace(/__([^_]+)__/g, '<strong>$1</strong>');
-  html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-  html = html.replace(/_([^_]+)_/g, '<em>$1</em>');
-
-  // Convert links [text](url)
-  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
-
-  // Convert images ![alt](url)
-  html = html.replace(/!\[([^\]]+)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">');
 
   // Convert unordered lists (-, *, +) and ordered lists (1. 2. etc)
   const DEFAULT_INDENT = 2;
@@ -134,10 +131,13 @@ export function markdownToHtml(markdown) {
   html = html.replace(/class="[uo]l-item"\s*data-level="\d+"/g, '');
 
   // Convert paragraphs (text separated by blank lines)
-  html = html.replace(/^(?!<(?:h[1-6]|ul|ol|li))(.*$)/gm, (match) => {
-    if (match.trim() === '' || match.startsWith(noPtag)) return match;
-    return `<p>${match}</p>`;
-  });
+  html = html.replace(
+    /^(?!<(?:h[1-6]|ul|ol|li|pre|code))((?:.+?)(?:\n\n|$))/gms,
+    (match) => {
+      if (match.trim() === '' || match.startsWith(noPtag)) return match;
+      return `<p>${match.trim()}</p>`;
+    }
+  );
 
   // Remove no-p-tag markers
   html = html.replace(new RegExp(noPtag, 'g'), '');
@@ -182,6 +182,18 @@ export function markdownToHtml(markdown) {
       return `${start}${highlightedCode}${end}`;
     }
   );
+
+  // Convert emphasis text (**, __, *, _)
+  html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/__([^_]+)__/g, '<strong>$1</strong>');
+  html = html.replace(/\*([a-zA-Z0-9][^*]*[a-zA-Z0-9])\*/g, '<em>$1</em>');
+  // html = html.replace(/_([^_]+)_/g, '<em>$1</em>');
+
+  // Convert links [text](url)
+  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+
+  // Convert images ![alt](url)
+  html = html.replace(/!\[([^\]]+)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">');
 
   return html;
 }
