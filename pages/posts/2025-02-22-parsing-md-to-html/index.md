@@ -27,7 +27,7 @@
 
 ## Code Block
 
-※ Highlighting syntax is only supported in JavaScript code blocks
+※ Highlighting syntax is only supported in `JavaScript` code blocks
 
 ```js
 export function parseMarkdownToHtml(markdown) {
@@ -58,7 +58,7 @@ const calculateTotal = async (element, count = 0) => {
   }
 };
 
-// Testing object methods
+// Testing class object methods
 class ShoppingCart {
   constructor() {
     this.items = new Map();

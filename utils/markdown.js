@@ -142,42 +142,51 @@ export function markdownToHtml(markdown) {
   // Remove no-p-tag markers
   html = html.replace(new RegExp(noPtag, 'g'), '');
 
-  // Add syntax highlighting classes
+  // Process only inside <pre><code> blocks
   html = html.replace(
     /(<pre><code class="language-js">)([\s\S]*?)(<\/code><\/pre>)/g,
     (match, start, code, end) => {
-      // Strings (both single and double quotes)
-      let highlightedCode = code.replace(
-        /(["'`])(.*?)\1/g,
-        '<span class="string">$1$2$1</span>'
-      );
+      // Step 1: Extract comments and store them with placeholders
+      const comments = [];
+      let codeWithoutComments = code.replace(/(\/\/.*$)/gm, (match) => {
+        comments.push(match);
+        return `__COMMENT_PLACEHOLDER_${comments.length - 1}__`;
+      });
 
-      // Functions
+      // Step 2: Syntax highlighting
+      let highlightedCode = codeWithoutComments
+        // Strings (single, double, template)
+        .replace(/(["'`])(.*?)\1/g, '<span class="string">$1$2$1</span>')
+
+        // Keywords
+        .replace(
+          /\b(const|let|var|function|return|async|await|try|catch|throw|if|else|for|while|class|new|export|import|from)\s(?!\s)/g,
+          '<span class="keyword">$1</span> '
+        )
+
+        // Keywords with a subsequent character
+        .replace(
+          /\b(this|constructor)(?!\s)/g,
+          '<span class="keyword">$1</span>'
+        )
+
+        // Functions
+        .replace(
+          /\b([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\(/g,
+          '<span class="function">$1</span>('
+        )
+
+        // Numbers
+        .replace(/\b(\d+(\.\d+)?)\b/g, '<span class="number">$1</span>')
+
+        // Remove unnecessary <p> tags
+        .replace(/<\/?p>/g, '');
+
+      // Step 3: Restore comments as spans
       highlightedCode = highlightedCode.replace(
-        /\b([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\(/g,
-        '<span class="function">$1</span>('
+        /__COMMENT_PLACEHOLDER_(\d+)__/g,
+        (match, index) => `<span class="comment">${comments[index]}</span>`
       );
-
-      // Numbers
-      highlightedCode = highlightedCode.replace(
-        /\b(\d+(\.\d+)?)\b/g,
-        '<span class="number">$1</span>'
-      );
-
-      // Comments (single line)
-      highlightedCode = highlightedCode.replace(
-        /(\/\/.*$)/gm,
-        '<span class="comment">$1</span>'
-      );
-
-      // Keywords
-      highlightedCode = highlightedCode.replace(
-        /\b(const|let|var|function|return|async|await|if|else|for|while|class|export|import|from)\s(?!\s)/g,
-        '<span class="keyword">$1</span> '
-      );
-
-      // Remove p tags
-      highlightedCode = highlightedCode.replace(/<\/?p>/g, '');
 
       return `${start}${highlightedCode}${end}`;
     }
