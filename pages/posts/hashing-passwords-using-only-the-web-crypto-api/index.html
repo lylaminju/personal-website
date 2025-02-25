@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lyla</title>
+    <link rel="stylesheet" href="../../../styles/styles.css" />
+    <link rel="stylesheet" href="../../../styles/blog-content.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../../assets/profile character.ico"
+    />
+  </head>
+  <body>
+    <app-header></app-header>
+
+    <section>
+      <div id="blog-content"></div>
+    </section>
+
+    <app-footer></app-footer>
+
+    <script type="module">
+      import { loadMarkdown } from '../../../utils/loadMarkdown.js';
+
+      await loadMarkdown('./index.md', 'blog-content');
+    </script>
+    <script type="module" src="../../../index.js"></script>
+  </body>
+</html>
