@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 #blog-content {
   max-width: 100%;
   overflow-x: hidden; /* Hide container's own scroll */
@@ -11,23 +15,33 @@
 
 /* Typography */
 h1 {
-  font-size: 2.5rem;
   margin: 1rem 0 1.5rem;
+  font-size: 2.5rem;
 }
 
 h2 {
-  font-size: 2rem;
   margin: 1.5rem 0 1rem;
+  font-size: 2rem;
+  font-weight: 500;
 }
 
 h3 {
-  font-size: 1.5rem;
   margin: 1.3rem 0 0.8rem;
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 p {
-  line-height: 1.7;
-  margin: 1rem 0;
+  line-height: 1.5;
+  margin: 0.5rem 0;
+}
+
+a {
+  color: #456285;
 }
 
 /* Lists */
@@ -83,40 +97,45 @@ hr {
 
 /* Code blocks */
 pre {
+  max-width: 100%;
+  margin: 0.5rem 0;
   padding: 0.5rem 1rem;
   border-radius: 6px;
-  margin: 1rem 0;
   background-color: #1e1e1e;
   color: #f7f7f7;
-  max-width: 100%;
   white-space: pre;
   overflow-x: auto;
 
   code {
     font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
     font-size: 0.9rem;
-    line-height: 1.4;
+    line-height: 1;
     background-color: transparent;
-  }
-
-  p {
-    line-height: 1.4;
-    margin: 0;
   }
 }
 
-/* Code inside headings inherits heading styles */
+/* Tags inside headings inherit heading styles */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+  a,
+  code {
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: inherit;
+  }
+
   code {
     background-color: transparent;
     padding: 0;
-    font-size: inherit;
-    font-family: inherit;
   }
 }
 
