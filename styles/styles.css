@@ -13,6 +13,14 @@ body {
   color: #1e1e1e;
 }
 
+header,
+section,
+app-footer {
+  max-width: 900px;
+  width: 100%;
+  padding: 0 1rem;
+}
+
 header {
   font-size: 1.4rem;
 
@@ -21,15 +29,8 @@ header {
   }
 }
 
-section,
-app-footer {
-  max-width: 1000px;
-  width: 100%;
-}
-
 section {
   height: auto;
-  padding: 15px 10px;
 }
 
 h1 {
