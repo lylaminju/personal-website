@@ -18,22 +18,27 @@
 
     <app-footer></app-footer>
 
-    <script>
-      async function renderPosts() {
-        const response = await fetch('../data/posts.json');
-        const data = await response.json();
+    <script type="module">
+      import { posts } from '../data/posts.js';
+
+      function renderPosts() {
         const container = document.getElementById('posts-container');
 
         // Sort posts by date in reverse order
-        const sortedPosts = data.posts.sort(
+        const sortedPosts = posts.sort(
           (a, b) => new Date(b.date) - new Date(a.date)
         );
 
         sortedPosts.forEach((post) => {
+          const hypenatedTitle = post.title
+            .toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, '') // Removes special characters except spaces and hyphens
+            .replace(/\s+/g, '-'); // Replaces spaces with hyphens
+
           const li = document.createElement('li');
           li.innerHTML = `
             <span class="post-date">${post.date}</span>
-            <a href="./posts/${post.path}">${post.title}</a>
+            <a href="./posts/${hypenatedTitle}">${post.title}</a>
           `;
           container.appendChild(li);
         });
