@@ -46,12 +46,18 @@ export function markdownToHtml(markdown) {
   });
 
   // Convert headers (#, ##, ###)
-  html = html.replace(/^###### (.*$)/gm, '<h6>$1</h6>');
-  html = html.replace(/^##### (.*$)/gm, '<h5>$1</h5>');
-  html = html.replace(/^#### (.*$)/gm, '<h4>$1</h4>');
-  html = html.replace(/^### (.*$)/gm, '<h3>$1</h3>');
-  html = html.replace(/^## (.*$)/gm, '<h2>$1</h2>');
-  html = html.replace(/^# (.*$)/gm, '<h1>$1</h1>');
+  html = html.replace(
+    /^###### (.*$)/gm,
+    '<h6 id="$1"><a href="#$1">$1</a></h6>'
+  );
+  html = html.replace(
+    /^##### (.*$)/gm,
+    '<h5 id="$1"><a href="#$1">$1</a></h5>'
+  );
+  html = html.replace(/^#### (.*$)/gm, '<h4 id="$1"><a href="#$1">$1</a></h4>');
+  html = html.replace(/^### (.*$)/gm, '<h3 id="$1"><a href="#$1">$1</a></h3>');
+  html = html.replace(/^## (.*$)/gm, '<h2 id="$1"><a href="#$1">$1</a></h2>');
+  html = html.replace(/^# (.*$)/gm, '<h1 id="$1"><a href="#$1">$1</a></h1>');
 
   // Convert unordered lists (-, *, +) and ordered lists (1. 2. etc)
   const DEFAULT_INDENT = 2;
@@ -160,7 +166,7 @@ export function markdownToHtml(markdown) {
       });
 
       // Step 2: Syntax highlighting
-      let highlightedCode = codeWithoutComments
+      const highlightedCode = codeWithoutComments
         // Strings (single, double, template)
         .replace(/(["'`])(.*?)\1/g, '<span class="string">$1$2$1</span>')
 
@@ -186,13 +192,13 @@ export function markdownToHtml(markdown) {
         .replace(/\b(\d+(\.\d+)?)\b/g, '<span class="number">$1</span>')
 
         // Remove unnecessary <p> tags
-        .replace(/<\/?p>/g, '');
+        .replace(/<\/?p>/g, '')
 
-      // Step 3: Restore comments as spans
-      highlightedCode = highlightedCode.replace(
-        /__COMMENT_PLACEHOLDER_(\d+)__/g,
-        (match, index) => `<span class="comment">${comments[index]}</span>`
-      );
+        // Step 3: Restore comments as spans
+        .replace(
+          /__COMMENT_PLACEHOLDER_(\d+)__/g,
+          (match, index) => `<span class="comment">${comments[index]}</span>`
+        );
 
       return `${start}${highlightedCode}${end}`;
     }
@@ -205,7 +211,10 @@ export function markdownToHtml(markdown) {
   // html = html.replace(/_([^_]+)_/g, '<em>$1</em>');
 
   // Convert links [text](url)
-  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+  html = html.replace(
+    /\[([^\]]+)\]\(([^)]+)\)/g,
+    '<a href="$2" target="_blank">$1</a>'
+  );
 
   // Convert images ![alt](url)
   html = html.replace(/!\[([^\]]+)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">');
