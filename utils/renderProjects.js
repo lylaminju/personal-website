@@ -5,7 +5,7 @@ function createProjectBox(project) {
   projectBox.className = 'project-box';
   projectBox.onclick = () =>
     window.open(project.website || project.github, '_blank');
-
+  const iconPath = '../assets/icons';
   projectBox.innerHTML = `
     <div class="project-image">
       <img src="${project.image || '../assets/default-project.png'}" alt="${
@@ -20,7 +20,7 @@ function createProjectBox(project) {
             <a target="_blank" href="${project.github}"
               onclick="event.stopPropagation()">
               <svg class="link-icon">
-                <use href="../assets/github.svg#icon"></use>
+                <use href="${iconPath}/github.svg#icon"></use>
               </svg>
             </a>
           </li>
@@ -30,7 +30,7 @@ function createProjectBox(project) {
                   <li>
                       <a target="_blank" href="${project.website}" onclick="event.stopPropagation()">
                       <svg class="link-icon">
-                          <use href="../assets/web.svg#icon"></use>
+                          <use href="${iconPath}/web.svg#icon"></use>
                       </svg>
                       </a>
                   </li>
@@ -43,7 +43,7 @@ function createProjectBox(project) {
                   <li>
                       <a target="_blank" href="${project.youtube}" onclick="event.stopPropagation()">
                       <svg class="link-icon">
-                          <use href="../assets/youtube.svg#icon"></use>
+                          <use href="${iconPath}/youtube.svg#icon"></use>
                       </svg>
                       </a>
                   </li>

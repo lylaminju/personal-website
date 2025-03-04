@@ -1,4 +1,5 @@
 class Footer extends HTMLElement {
+  // dynamically get base path due to posts html
   getBasePath() {
     const depth = window.location.pathname.split('/').filter(Boolean).length;
 
@@ -10,23 +11,23 @@ class Footer extends HTMLElement {
   }
 
   connectedCallback() {
-    const basePath = this.getBasePath();
+    const iconPath = `${this.getBasePath()}assets/icons`;
 
     this.innerHTML = `
       <footer>
         <a target="blank" href="mailto:mjuudev@gmail.com">
           <svg class="footer-icon">
-            <use href="${basePath}assets/email.svg#icon"></use>
+            <use href="${iconPath}/email.svg#icon"></use>
           </svg>
         </a>
         <a target="blank" href="https://github.com/pmjuu">
           <svg class="footer-icon">
-            <use href="${basePath}assets/github.svg#icon"></use>
+            <use href="${iconPath}/github.svg#icon"></use>
           </svg>
         </a>
         <a target="blank" href="https://www.linkedin.com/in/lylaminjupark">
           <svg class="footer-icon">
-            <use href="${basePath}assets/linkedin.svg#icon"></use>
+            <use href="${iconPath}/linkedin.svg#icon"></use>
           </svg>
         </a>
       </footer>
