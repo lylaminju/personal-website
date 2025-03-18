@@ -13,7 +13,7 @@ export const projects = [
     title: 'Climick',
     emoji: '🧗',
     image: '../assets/project-images/climick-preview.png',
-    github: 'https://github.com/pmjuu/climick-client',
+    github: 'https://github.com/lylaminju/climick-client',
     website: 'https://climick.netlify.app',
     description: 'Climbing web game without external physics libraries',
     techStack:
@@ -24,7 +24,7 @@ export const projects = [
     title: 'Reactree',
     emoji: '🌳',
     image: '../assets/project-images/reactree-preview.png',
-    github: 'https://github.com/pmjuu/reactree-frontend',
+    github: 'https://github.com/lylaminju/reactree-frontend',
     description:
       'Electron app that visualizes the component hierarchy of a React project',
     techStack:

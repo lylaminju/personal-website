@@ -20,7 +20,7 @@ class Footer extends HTMLElement {
             <use href="${iconPath}/email.svg#icon"></use>
           </svg>
         </a>
-        <a target="blank" href="https://github.com/pmjuu">
+        <a target="blank" href="https://github.com/lylaminju">
           <svg class="footer-icon">
             <use href="${iconPath}/github.svg#icon"></use>
           </svg>
