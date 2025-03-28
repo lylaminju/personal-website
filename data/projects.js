@@ -1,5 +1,14 @@
 export const projects = [
   {
+    title: 'ClimberzDay',
+    emoji: '🧗',
+    image: '../assets/project-images/climberzday-preview.jpg',
+    github: 'https://github.com/lylaminju/climbers',
+    website: 'https://lylaminju.github.io/climbers',
+    description: 'Web service that explores climbing gyms and compares routes',
+    techStack: 'TypeScript, Sveltekit, Tailwindcss, Flowbite',
+  },
+  {
     title: 'Re:Mem',
     emoji: '📝',
     image: '../assets/project-images/remem-calendar.png',
@@ -11,7 +20,7 @@ export const projects = [
   },
   {
     title: 'Climick',
-    emoji: '🧗',
+    emoji: '🎮',
     image: '../assets/project-images/climick-preview.png',
     github: 'https://github.com/lylaminju/climick-client',
     website: 'https://climick.netlify.app',
