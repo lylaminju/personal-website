@@ -21,7 +21,7 @@ export const projects = [
   {
     title: 'Climick',
     emoji: '🎮',
-    image: '../assets/project-images/climick-preview.png',
+    image: '../assets/project-images/climick-preview.jpg',
     github: 'https://github.com/lylaminju/climick-client',
     website: 'https://climick.netlify.app',
     description: 'Climbing web game without external physics libraries',
