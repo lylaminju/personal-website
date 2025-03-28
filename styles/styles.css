@@ -49,6 +49,10 @@ h3 {
   font-weight: 600;
 }
 
+.career {
+  margin-bottom: 1.5rem;
+}
+
 .explanation {
   font-weight: 600;
 }
@@ -87,8 +91,8 @@ footer {
 }
 
 .footer-icon {
-  width: 25px;
-  height: 25px;
+  width: 22px;
+  height: 22px;
   fill: #9b9ba6;
 }
 
@@ -112,7 +116,7 @@ footer {
   text-align: center;
   font-size: 0.4em;
   font-weight: 400;
-  min-width: 60px; /* 최소 너비 설정 */
+  min-width: 60px;
   white-space: nowrap;
 
   /* Position the tooltip */
