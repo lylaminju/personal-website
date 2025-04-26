@@ -4,9 +4,9 @@ export const projects = [
     emoji: '🧗',
     image: '../assets/project-images/climberzday-preview.jpg',
     github: 'https://github.com/lylaminju/climbers',
-    website: 'https://lylaminju.github.io/climbers',
-    description: 'Web service that explores climbing gyms and compares routes',
-    techStack: 'TypeScript, Sveltekit, Tailwindcss, Flowbite',
+    website: 'https://climberz.day',
+    description: 'Web service that explores climbing gyms, compares routes, and finds new climbing partners',
+    techStack: 'TypeScript, Sveltekit, Tailwindcss, Flowbite, Supabase, PostgreSQL',
   },
   {
     title: 'Re:Mem',
