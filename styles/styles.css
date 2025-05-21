@@ -5,6 +5,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem;
   padding-top: 20px;
   min-height: 100vh;
   background-color: #f7f7f7f7;

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lyla</title>
     <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/projects.css" />
     <link rel="icon" type="image/png" href="./assets/profile character.ico" />
   </head>
   <!-- Google tag (gtag.js) -->
@@ -47,52 +48,37 @@
         >, without any framworks
       </p>
     </section>
-    <section>
-      <h1>💻</h1>
-      <div class="career">
-        <h3>Software Engineer</h3>
-        <p>
-          <a href="https://torontojs.com/">TorontoJS</a>, Nov 2024 - present
-        </p>
-        <p class="explanation">
-          Built authentication features and email-sending service for a
-          <a href="https://github.com/torontojs/vms">
-            Volunteer Management System
-          </a>
-        </p>
-        <p class="tech-stack">
-          Language: TypeScript | Frameworks: React, Hono.js | Database: SQLite |
-          Platform: Cloudflare Workers
-        </p>
-      </div>
-      <div class="career">
-        <h3>Software Engineer (Backend)</h3>
-        <p>Travel Tech Startup <a href="https://www.nuua.ai/en/">NUUA</a></p>
-        <p>Aug 2023 - Aug 2024 Full-time</p>
-        <p class="explanation">
-          Developed RESTful APIs of Online Booking Tool
-          <a href="https://www.won.travel/">WonTravel</a>
-        </p>
-        <p class="tech-stack">
-          Language: Kotlin | Frameworks: Spring Boot, MyBatis | Database: MySQL
-          | Testing: JUnit
-        </p>
-      </div>
-    </section>
-    <section>
-      <h1>⚙️</h1>
-      <ul>
-        <li><b>Languages</b>: Kotlin, Java, Python, TypeScript, JavaScript</li>
-        <li>
-          <b>Frameworks</b>: Spring Boot, MyBatis, Spring Data JPA, React,
-          Node.js, Express
-        </li>
-        <li><b>Database & Tools</b>: MySQL, MongoDB, JUnit, Jest, Git</li>
-      </ul>
-    </section>
+    
+		<section>
+			<h1>💻</h1>
+			<div class="career">
+				<h3>Software Engineer</h3>
+				<p><a href="https://torontojs.com/">TorontoJS</a>, Nov 2024 - present</p>
+				<p class="explanation">
+					Built authentication features and email-sending service for a
+					<a href="https://github.com/torontojs/vms"> Volunteer Management System </a>
+				</p>
+				<p class="tech-stack">Language: TypeScript | Frameworks: React, Hono.js | Database: SQLite | Platform: Cloudflare Workers | Testing: Vitest</p>
+			</div>
+			<div class="career">
+				<h3>Software Engineer (Backend)</h3>
+				<p>Travel Tech Startup <a href="https://www.nuua.ai/en/">NUUA</a>, Aug 2023 - Aug 2024</p>
+				<p class="explanation">
+					Developed RESTful APIs of Online Booking Tool
+					<a href="https://www.won.travel/">WonTravel</a>
+				</p>
+				<p class="tech-stack">Language: Kotlin | Frameworks: Spring Boot, MyBatis | Database: MySQL | Testing: JUnit</p>
+			</div>
+		</section>
+
+		<section>
+			<h1>Projects</h1>
+			<div id="projects-container"></div>
+		</section>
 
     <app-footer></app-footer>
 
     <script type="module" src="index.js"></script>
+		<script type="module" src="utils/renderProjects.js"></script>
   </body>
 </html>
