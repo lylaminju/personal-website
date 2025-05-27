@@ -1,5 +1,3 @@
-# Why use `LIMIT 1` even if only one result is expected?
-
 ```js
 export async function checkEmail(database: D1Database, email: string) {
   const { results } = await database

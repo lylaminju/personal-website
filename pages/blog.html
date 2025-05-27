@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lyla</title>
     <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/blog-posts.css" />
     <link rel="icon" type="image/png" href="../assets/profile character.ico" />
   </head>
   <!-- Google tag (gtag.js) -->
@@ -17,49 +18,20 @@
     function gtag() {
       dataLayer.push(arguments);
     }
-    gtag('js', new Date());
+    gtag("js", new Date());
 
-    gtag('config', 'G-8T2LVCMTTY');
+    gtag("config", "G-8T2LVCMTTY");
   </script>
   <body>
     <app-header></app-header>
 
     <section>
       <h1>Blog</h1>
-
-      <ul id="posts-container"></ul>
+      <blog-posts></blog-posts>
     </section>
 
     <app-footer></app-footer>
 
-    <script type="module">
-      import { posts } from '../data/posts.js';
-
-      function renderPosts() {
-        const container = document.getElementById('posts-container');
-
-        // Sort posts by date in reverse order
-        const sortedPosts = posts.sort(
-          (a, b) => new Date(b.date) - new Date(a.date)
-        );
-
-        sortedPosts.forEach((post) => {
-          const hypenatedTitle = post.title
-            .toLowerCase()
-            .replace(/[^a-z0-9\s-]/g, '') // Removes special characters except spaces and hyphens
-            .replace(/\s+/g, '-'); // Replaces spaces with hyphens
-
-          const li = document.createElement('li');
-          li.innerHTML = `
-            <span class="post-date">${post.date}</span>
-            <a href="./posts/${hypenatedTitle}">${post.title}</a>
-          `;
-          container.appendChild(li);
-        });
-      }
-
-      renderPosts();
-    </script>
     <script type="module" src="../index.js"></script>
   </body>
 </html>
