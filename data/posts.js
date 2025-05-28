@@ -15,4 +15,18 @@ export const posts = [
       return slugify(this.title);
     },
   },
+  {
+    date: "2025-05-21",
+    title: "Balancing ease of access for anonymous users with spam protection",
+    get slug() {
+      return slugify(this.title);
+    },
+  },
+  {
+    date: "2025-05-22",
+    title: "Ensuring data integrity in SvelteKit + Supabase",
+    get slug() {
+      return slugify(this.title);
+    },
+  },
 ];
