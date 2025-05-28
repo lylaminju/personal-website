@@ -43,7 +43,7 @@ async function loadBlogPost(slug) {
 
     // Set the page title and post title
     document.title = `${post.title} - Lyla's Blog`;
-    document.getElementById("post-title").textContent = post.title;
+    // document.getElementById("post-title").textContent = post.title;
 
     // Set the post date
     const dateElement = document.getElementById("post-date");
