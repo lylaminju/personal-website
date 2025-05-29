@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="../styles/styles.css" />
     <link rel="stylesheet" href="../styles/blog-content.css" />
     <link rel="icon" type="image/png" href="../assets/profile character.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css"
+    />
   </head>
   <!-- Google tag (gtag.js) -->
   <script
@@ -26,7 +30,6 @@
     <app-header></app-header>
 
     <section>
-      <!-- <h1 id="post-title"></h1> -->
       <div class="post-metadata">
         <post-date id="post-date"></post-date>
       </div>
@@ -35,6 +38,12 @@
 
     <app-footer></app-footer>
 
+    <!-- marked.js -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+    <!-- postLoader.js -->
     <script type="module" src="../utils/postLoader.js"></script>
     <script type="module" src="../index.js"></script>
   </body>

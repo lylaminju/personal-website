@@ -99,19 +99,15 @@ hr {
 /* Code blocks */
 pre {
   max-width: 100%;
-  margin: 0.5rem 0;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
   background-color: #1e1e1e;
   color: #f7f7f7;
   white-space: pre;
   overflow-x: auto;
+  border-radius: 6px;
 
   code {
-    font-family: "Menlo", "Monaco", "Courier New", monospace;
+    padding: 0.5rem 1rem;
     font-size: 0.9rem;
-    line-height: 1;
-    background-color: transparent;
   }
 }
 
