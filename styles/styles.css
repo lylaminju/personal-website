@@ -1,15 +1,14 @@
-@import url('./reset.css');
+@import url("./reset.css");
 
 body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
   padding-top: 20px;
   min-height: 100vh;
   background-color: #f7f7f7f7;
-  font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+  font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
   font-size: 1.2rem;
   color: #1e1e1e;
 }

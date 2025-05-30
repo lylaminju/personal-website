@@ -120,6 +120,23 @@ summary {
   user-select: none;
 }
 
+/* tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid #dfe2e5;
+}
+
+th {
+  background-color: #efefef;
+}
+
 /* Code blocks */
 pre {
   max-width: 100%;
