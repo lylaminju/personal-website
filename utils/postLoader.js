@@ -1,49 +1,102 @@
-const contentEl = document.getElementById("blog-content");
-const dateEl = document.getElementById("post-date");
+function extractSlugFromUrl() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get("slug");
+}
 
-// Extract 'slug' query parameter from URL
-const urlParams = new URLSearchParams(window.location.search);
-const postSlug = urlParams.get("slug");
+async function fetchMarkdown(path) {
+  const response = await fetch(path);
 
-// Construct markdown file path
-const markdownPath = `/pages/posts/${postSlug}/index.md`;
+  if (!response.ok) {
+    throw new Error(`Markdown file not found at ${path} (${response.status})`);
+  }
 
-async function loadPost() {
-  try {
-    const response = await fetch(markdownPath);
-    if (!response.ok) {
-      throw new Error(`Markdown file not found at ${markdownPath}`);
-    }
-    
-    const markdown = await response.text();
-    
-    // Convert markdown to HTML
-    const html = marked.parse(markdown);
-    contentEl.innerHTML = html;
+  return response.text();
+}
 
-    // Apply code highlighting
-    if (window.hljs) {
-      document.querySelectorAll("pre code").forEach((block) => {
-        hljs.highlightElement(block);
-      });
-    } else {
-      console.error("Highlight.js not loaded");
-    }
+function parseFrontmatter(markdown) {
+  const frontmatterRegex = /^---\n([\s\S]*?)\n---\n?/;
+  const match = markdown.match(frontmatterRegex);
 
-    // TODO: Extract date metadata if it exists
-    const dateMatch = markdown.match(/^Date:\s*(.+)$/m);
-    if (dateMatch) {
-      dateEl.textContent = new Date(dateMatch[1]).toDateString();
-    }
+  if (!match) {
+    return { metadata: {}, content: markdown };
+  }
 
-    // Get the post title from the first h1 element or fallback to slug
-    const postTitle = document.querySelector('h1')?.textContent || postSlug;
-    document.title = `${postTitle} - Lyla's Blog`;
-  } catch (err) {
-    contentEl.innerHTML = "<p>Sorry, this post could not be loaded.</p>";
-    console.error(err);
+  const frontmatterContent = match[1];
+  const markdownContent = markdown.slice(match[0].length);
+
+  const metadata = frontmatterContent.split("\n").reduce((acc, line) => {
+    const colonIndex = line.indexOf(":");
+    if (colonIndex === -1) return acc;
+
+    const key = line.slice(0, colonIndex).trim();
+    const value = line.slice(colonIndex + 1).trim();
+
+    return key && value ? { ...acc, [key]: value } : acc;
+  }, {});
+
+  return { metadata, content: markdownContent };
+}
+
+function applySyntaxHighlighting() {
+  if (!window.hljs) {
+    console.warn("Highlight.js not available - skipping syntax highlighting");
+    return;
+  }
+
+  document.querySelectorAll("pre code").forEach((block) => {
+    hljs.highlightElement(block);
+  });
+}
+
+function setPageTitle(postSlug) {
+  const postTitle = document.querySelector("h1")?.textContent || postSlug;
+  document.title = `${postTitle} - Lyla's Blog`;
+}
+
+function displayError(contentEl, message) {
+  if (contentEl) {
+    contentEl.innerHTML = `<p class="error">${message}</p>`;
   }
 }
 
-// Execute the async function
-loadPost();
+async function loadPost() {
+  const contentEl = document.getElementById("blog-content");
+  const dateEl = document.getElementById("post-date");
+  const postSlug = extractSlugFromUrl();
+
+  // Early validation
+  if (!postSlug) {
+    displayError(contentEl, "No post slug provided in URL");
+    return;
+  }
+
+  if (!contentEl || !dateEl) {
+    displayError(contentEl, "Required DOM elements not found");
+    return;
+  }
+
+  try {
+    const markdownPath = `/pages/posts/${postSlug}/index.md`;
+    const markdown = await fetchMarkdown(markdownPath);
+    const { content, metadata } = parseFrontmatter(markdown);
+
+    // Render content
+    const html = marked.parse(content);
+    contentEl.innerHTML = html;
+
+    applySyntaxHighlighting();
+
+    dateEl.textContent = metadata.date;
+
+    setPageTitle(postSlug);
+  } catch (err) {
+    displayError(contentEl, "Sorry, this post could not be loaded.");
+    console.error(`Failed to load post: ${err.message}`);
+  }
+}
+
+try {
+  loadPost();
+} catch (err) {
+  console.error("Failed to initialize blog post loader:", err);
+}
