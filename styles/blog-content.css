@@ -14,6 +14,14 @@ html {
   text-align: right;
 }
 
+#post-tags {
+  margin-top: 1rem;
+}
+
+.post-tag {
+  font-size: 0.9rem;
+}
+
 /* Typography */
 h1 {
   margin: 1rem 0 1.5rem;
@@ -96,6 +104,22 @@ hr {
   margin: 2rem 0;
 }
 
+/* Details */
+details {
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  background-color: #efefef;
+  border-radius: 1rem;
+  font-size: 1rem;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #6a737d;
+  user-select: none;
+}
+
 /* Code blocks */
 pre {
   max-width: 100%;
@@ -141,30 +165,6 @@ code {
   background-color: #e6e6e6;
   padding: 0.1rem 0.3rem;
   border-radius: 4px;
-}
-
-/* Language-specific syntax highlighting */
-.language-js {
-  .keyword {
-    color: #569cd6;
-  }
-
-  .string {
-    color: #ce9178;
-  }
-
-  .function {
-    color: #dcdcaa;
-  }
-
-  .number {
-    color: #b5cea8;
-  }
-
-  .comment {
-    color: #6a9955;
-    font-style: italic;
-  }
 }
 
 @media (max-width: 768px) {

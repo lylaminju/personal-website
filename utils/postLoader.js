@@ -62,6 +62,7 @@ function displayError(contentEl, message) {
 async function loadPost() {
   const contentEl = document.getElementById("blog-content");
   const dateEl = document.getElementById("post-date");
+  const tagEl = document.getElementById("post-tags");
   const postSlug = extractSlugFromUrl();
 
   // Early validation
@@ -87,6 +88,11 @@ async function loadPost() {
     applySyntaxHighlighting();
 
     dateEl.textContent = metadata.date;
+
+    tagEl.innerHTML = metadata.tags
+      .split(", ")
+      .map((tag) => `<span class="post-tag">#${tag}</span>`)
+      .join(" ");
 
     setPageTitle(postSlug);
   } catch (err) {

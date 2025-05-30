@@ -29,4 +29,11 @@ export const posts = [
       return slugify(this.title);
     },
   },
+  {
+    date: "2025-05-30",
+    title: "Handling concurrency issues in Kotlin + Spring Boot REST APIs",
+    get slug() {
+      return slugify(this.title);
+    },
+  },
 ];
