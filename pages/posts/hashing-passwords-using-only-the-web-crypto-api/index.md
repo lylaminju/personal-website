@@ -1,3 +1,10 @@
+---
+title: Hashing Passwords Using Only the Web Crypto API
+date: 2025-02-25
+---
+
+# Hashing Passwords Using Only the Web Crypto API
+
 ## Background
 
 While working on a project using Cloudflare Workers, I found that the well-known functions–bcrypt and Argon2–are not supported. So, my team agreed to utilize the Web Crypto API to hash passwords.

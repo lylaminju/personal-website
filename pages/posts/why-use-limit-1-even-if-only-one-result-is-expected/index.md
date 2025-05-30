@@ -1,3 +1,10 @@
+---
+title: Why Use `LIMIT 1` Even If Only One Result Is Expected
+date: 2025-02-23
+---
+
+# Why Use `LIMIT 1` Even If Only One Result Is Expected
+
 ```js
 export async function checkEmail(database: D1Database, email: string) {
   const { results } = await database

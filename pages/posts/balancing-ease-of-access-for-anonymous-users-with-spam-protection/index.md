@@ -1,3 +1,8 @@
+---
+title: Balancing Ease of Access for Anonymous Users with Spam Protection
+date: 2025-05-21
+---
+
 # Balancing Ease of Access for Anonymous Users with Spam Protection
 
 ## The Problem

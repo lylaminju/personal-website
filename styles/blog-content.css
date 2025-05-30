@@ -7,10 +7,10 @@ html {
   overflow-x: hidden; /* Hide container's own scroll */
 }
 
-.post-date {
+#post-date {
+  display: block;
   color: #6a737d;
   font-size: 0.9rem;
-  margin-top: 1rem;
   text-align: right;
 }
 
