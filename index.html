@@ -1,74 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lyla</title>
-    <link rel="stylesheet" href="styles/styles.css" />
-    <link rel="stylesheet" href="styles/projects.css" />
-    <link rel="icon" type="image/png" href="./assets/profile character.ico" />
-  </head>
-  <!-- Google tag (gtag.js) -->
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-8T2LVCMTTY"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Lyla</title>
+		<link rel="stylesheet" href="styles/styles.css" />
+		<link rel="stylesheet" href="styles/projects.css" />
+		<link rel="icon" type="image/png" href="./assets/profile character.ico" />
+	</head>
+	<!-- Google tag (gtag.js) -->
+	<script
+		async
+		src="https://www.googletagmanager.com/gtag/js?id=G-8T2LVCMTTY"
+	></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
 
-    gtag('config', 'G-8T2LVCMTTY');
-  </script>
-  <body>
-    <app-header></app-header>
+		gtag("config", "G-8T2LVCMTTY");
+	</script>
+	<body>
+		<app-header></app-header>
 
-    <section>
-      <h1>
-        Hi, I'm
-        <span class="tooltip">
-          Lyla<span class="tooltip-text">[LIE-LAH]</span>
-        </span>
-        <br />
-        Welcome to my plain JS website
-      </h1>
-      <p>
-        I'm a software engineer with a passion for building web applications
-      </p>
-      <p>
-        My goal is to contribute to society with my ability while enhancing my
-        skills
-      </p>
-      <p>
-        This blog is built with plain JS using
-        <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">
-          Web Components API</a
-        >, without any framworks
-      </p>
-    </section>
-    
 		<section>
-			<h1>💻</h1>
-			<div class="career">
-				<h3>Software Engineer</h3>
-				<p><a href="https://torontojs.com/">TorontoJS</a>, Nov 2024 - present</p>
-				<p class="explanation">
-					Built authentication features and email-sending service for a
-					<a href="https://github.com/torontojs/vms"> Volunteer Management System </a>
-				</p>
-				<p class="tech-stack">Language: TypeScript | Frameworks: React, Hono.js | Database: SQLite | Platform: Cloudflare Workers | Testing: Vitest</p>
-			</div>
-			<div class="career">
-				<h3>Software Engineer (Backend)</h3>
-				<p>Travel Tech Startup <a href="https://www.nuua.ai/en/">NUUA</a>, Aug 2023 - Aug 2024</p>
-				<p class="explanation">
-					Developed RESTful APIs of Online Booking Tool
-					<a href="https://www.won.travel/">WonTravel</a>
-				</p>
-				<p class="tech-stack">Language: Kotlin | Frameworks: Spring Boot, MyBatis | Database: MySQL | Testing: JUnit</p>
-			</div>
+			<h1>
+				Hi, I'm
+				<span class="tooltip">
+					Lyla<span class="tooltip-text">[LIE-LAH]</span>
+				</span>
+				<br />
+				Welcome to my plain JS website
+			</h1>
+			<ul>
+				<li>I build software solutions that solve real-world problems.</li>
+				<li>
+					I'm passionate about sports – rock climbing, weight training and
+					outdoor running.
+				</li>
+			</ul>
+			<p>
+				I'd love to contribute to the society with my ability and passion while
+				enhancing my skills.
+			</p>
+			<br />
+			<p>
+				This blog is built with plain JS using
+				<a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">
+					Web Components API</a
+				>, without any frameworks
+			</p>
+			<p>
+				Check out the
+				<a href="https://github.com/lylaminju/personal-website">
+					GitHub repository
+				</a>
+				for more details.
+			</p>
 		</section>
 
 		<section>
@@ -76,9 +66,44 @@
 			<div id="projects-container"></div>
 		</section>
 
-    <app-footer></app-footer>
+		<section>
+			<h1>Career</h1>
+			<div class="career">
+				<h3>Software Engineer</h3>
+				<p>
+					<a href="https://torontojs.com/">TorontoJS</a>, Nov 2024 - present
+				</p>
+				<p class="explanation">
+					Built authentication features and email-sending service for a
+					<a href="https://github.com/torontojs/vms">
+						Volunteer Management System
+					</a>
+				</p>
+				<p class="tech-stack">
+					Language: TypeScript | Frameworks: React, Hono.js | Database: SQLite |
+					Platform: Cloudflare Workers | Testing: Vitest
+				</p>
+			</div>
+			<div class="career">
+				<h3>Software Engineer (Backend)</h3>
+				<p>
+					Travel Tech Startup <a href="https://www.nuua.ai/en/">NUUA</a>, Aug
+					2023 - Aug 2024
+				</p>
+				<p class="explanation">
+					Developed RESTful APIs of Online Booking Tool
+					<a href="https://www.won.travel/">WonTravel</a>
+				</p>
+				<p class="tech-stack">
+					Language: Kotlin | Frameworks: Spring Boot, MyBatis | Database: MySQL
+					| Testing: JUnit
+				</p>
+			</div>
+		</section>
 
-    <script type="module" src="index.js"></script>
+		<app-footer></app-footer>
+
+		<script type="module" src="index.js"></script>
 		<script type="module" src="utils/renderProjects.js"></script>
-  </body>
+	</body>
 </html>
