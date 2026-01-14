@@ -89,10 +89,12 @@ async function loadPost() {
 
     dateEl.textContent = metadata.date;
 
-    tagEl.innerHTML = metadata.tags
-      .split(", ")
-      .map((tag) => `<span class="post-tag">#${tag}</span>`)
-      .join(" ");
+    if (metadata.tags) {
+      tagEl.innerHTML = metadata.tags
+        .split(", ")
+        .map((tag) => `<span class="post-tag">#${tag}</span>`)
+        .join(" ");
+    }
 
     setPageTitle(postSlug);
   } catch (err) {
