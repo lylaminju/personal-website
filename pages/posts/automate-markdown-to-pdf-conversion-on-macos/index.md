@@ -114,7 +114,7 @@ Now the good part—make it automatic.
 Run this command in your terminal:
 
 ```bash
-fswatch -o input.md | xargs -n1 -I{} pandoc input.md -o output.pdf --pdf-engine=xelatex
+fswatch -o input.md | xargs -n1 -I{} pandoc input.md -o output.pdf --metadata-file=config.yaml --pdf-engine=xelatex
 ```
 
 This watches `input.md` and rebuilds the PDF every time you save.
@@ -153,7 +153,7 @@ defaults write -app Skim SKAutoReloadFileUpdate -bool true
 defaults write -app Skim SKAutoCheckFileUpdate -bool true
 
 # Start watching (run in your project directory)
-fswatch -o input.md | xargs -n1 -I{} pandoc input.md -o output.pdf --pdf-engine=xelatex
+fswatch -o input.md | xargs -n1 -I{} pandoc input.md -o output.pdf --metadata-file=config.yaml --pdf-engine=xelatex
 
 # Open PDF viewer
 open -a Skim output.pdf
