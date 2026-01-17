@@ -50,6 +50,13 @@ h3 {
 	font-weight: 600;
 }
 
+.greeting {
+	margin-top: 100px;
+	font-size: 3.5rem;
+	font-weight: 800;
+	color: #aaaab7;
+}
+
 .career {
 	margin-bottom: 1.5rem;
 }
