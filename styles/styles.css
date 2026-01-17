@@ -1,178 +1,178 @@
 @import url("./reset.css");
 
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 20px;
-  min-height: 100vh;
-  background-color: #f7f7f7f7;
-  font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
-  font-size: 1.2rem;
-  color: #1e1e1e;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 20px;
+	min-height: 100vh;
+	background-color: #f7f7f7f7;
+	font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+	font-size: 1.2rem;
+	color: #1e1e1e;
 }
 
 header,
 section,
 app-footer {
-  max-width: 900px;
-  width: 100%;
-  padding: 0 1rem;
+	max-width: 900px;
+	width: 100%;
+	padding: 0 1rem;
 }
 
 header {
-  font-size: 1.4rem;
+	font-size: 1.4rem;
 
-  nav > a {
-    margin: 0 0.5rem;
-    text-decoration: none;
-  }
+	nav > a {
+		margin: 0 0.5rem;
+		text-decoration: none;
+	}
 }
 
 section {
-  height: auto;
-  margin-bottom: 3rem;
+	height: auto;
+	margin-bottom: 3rem;
 }
 
 h1 {
-  font-size: clamp(1.5rem, 4vw, 2.7rem);
-  font-weight: 800;
-  color: #aaaab7;
+	font-size: clamp(1.5rem, 4vw, 2.7rem);
+	font-weight: 600;
+	color: #aaaab7;
 }
 
 h2 {
-  font-size: clamp(1.2rem, 3vw, 2.3rem);
+	font-size: clamp(1.2rem, 3vw, 2.3rem);
 }
 
 h3 {
-  font-size: clamp(1rem, 2.5vw, 2rem);
-  font-weight: 600;
+	font-size: clamp(1rem, 2.5vw, 2rem);
+	font-weight: 600;
 }
 
 .career {
-  margin-bottom: 1.5rem;
+	margin-bottom: 1.5rem;
 }
 
 .explanation {
-  font-weight: 600;
+	font-weight: 600;
 }
 
 ul {
-  margin: 5px 0px;
+	margin: 5px 0px;
 }
 
 #posts-container {
-  padding-left: 1.5rem;
-  list-style: disc;
+	padding-left: 1.5rem;
+	list-style: disc;
 
-  a {
-    text-decoration: none;
-  }
+	a {
+		text-decoration: none;
+	}
 }
 
 .about-me-keyword {
-  font-size: 1.6rem;
-  font-weight: 600;
+	font-size: 1.6rem;
+	font-weight: 600;
 }
 
 footer {
-  display: flex;
-  justify-content: center;
-  column-gap: 0.8rem;
-  margin-top: 40px;
-  padding: 25px 0px;
-  height: 100px;
-  border-top: 1px solid #9b9ba6;
+	display: flex;
+	justify-content: center;
+	column-gap: 0.8rem;
+	margin-top: 40px;
+	padding: 25px 0px;
+	height: 100px;
+	border-top: 1px solid #9b9ba6;
 
-  a {
-    margin: 0 5px;
-    font-size: 0;
-  }
+	a {
+		margin: 0 5px;
+		font-size: 0;
+	}
 }
 
 .footer-icon {
-  width: 22px;
-  height: 22px;
-  fill: #9b9ba6;
+	width: 22px;
+	height: 22px;
+	fill: #9b9ba6;
 }
 
 .link {
-  color: #9b9ba6;
-  text-underline-offset: 0.1rem;
-  text-decoration-thickness: 1px;
+	color: #9b9ba6;
+	text-underline-offset: 0.1rem;
+	text-decoration-thickness: 1px;
 }
 
 .tooltip {
-  position: relative;
-  display: inline-block;
+	position: relative;
+	display: inline-block;
 }
 
 .tooltip .tooltip-text {
-  visibility: hidden;
-  padding: 4px 7px;
-  border-radius: 6px;
-  background-color: #777;
-  color: #fff;
-  text-align: center;
-  font-size: 0.4em;
-  font-weight: 400;
-  min-width: 60px;
-  white-space: nowrap;
+	visibility: hidden;
+	padding: 4px 7px;
+	border-radius: 6px;
+	background-color: #777;
+	color: #fff;
+	text-align: center;
+	font-size: 0.4em;
+	font-weight: 400;
+	min-width: 60px;
+	white-space: nowrap;
 
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+	bottom: 100%;
+	left: 50%;
+	transform: translateX(-50%);
 
-  /* Add animation */
-  opacity: 0;
-  transition: opacity 0.3s;
+	/* Add animation */
+	opacity: 0;
+	transition: opacity 0.3s;
 }
 
 .tooltip:hover .tooltip-text {
-  visibility: visible;
-  opacity: 1;
+	visibility: visible;
+	opacity: 1;
 }
 
 @media (max-width: 768px) {
-  body {
-    font-size: 1rem;
-  }
+	body {
+		font-size: 1rem;
+	}
 
-  section {
-    min-height: 130px;
-  }
+	section {
+		min-height: 130px;
+	}
 
-  h1 {
-    font-size: clamp(1.7rem, 5vw, 2.5rem);
-  }
+	h1 {
+		font-size: clamp(1.7rem, 5vw, 2.5rem);
+	}
 
-  h2 {
-    font-size: clamp(1.5rem, 4vw, 2rem);
-  }
+	h2 {
+		font-size: clamp(1.5rem, 4vw, 2rem);
+	}
 
-  h3 {
-    font-size: clamp(1.4rem, 3vw, 1.6rem);
-  }
+	h3 {
+		font-size: clamp(1.4rem, 3vw, 1.6rem);
+	}
 
-  iframe {
-    width: 100%;
-  }
+	iframe {
+		width: 100%;
+	}
 
-  .about-me-keyword {
-    font-size: 1.4rem;
-  }
+	.about-me-keyword {
+		font-size: 1.4rem;
+	}
 
-  footer {
-    max-width: 100%;
-    padding: 15px 0px;
-  }
+	footer {
+		max-width: 100%;
+		padding: 15px 0px;
+	}
 }
 
 .post-date {
-  color: #666;
-  margin-right: 1rem;
+	color: #666;
+	margin-right: 1rem;
 }
