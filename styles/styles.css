@@ -1,4 +1,19 @@
 @import url("./reset.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+	--accent: #08aabe;
+	--accent-light: #2cc5d9;
+	--accent-dark: #068a9a;
+	--text-primary: #0f172a;
+	--text-secondary: #475569;
+	--text-muted: #64748b;
+	--bg-primary: #ffffff;
+	--bg-secondary: #f8fafc;
+	--border: #e2e8f0;
+	--font-heading: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+	--font-body: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+}
 
 body {
 	display: flex;
@@ -7,10 +22,11 @@ body {
 	align-items: center;
 	padding-top: 20px;
 	min-height: 100vh;
-	background-color: #f7f7f7f7;
-	font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
-	font-size: 1.2rem;
-	color: #1e1e1e;
+	background-color: var(--bg-primary);
+	font-family: var(--font-body);
+	font-size: 1.15rem;
+	line-height: 1.6;
+	color: var(--text-primary);
 }
 
 header,
@@ -22,11 +38,41 @@ app-footer {
 }
 
 header {
-	font-size: 1.4rem;
+	font-family: var(--font-heading);
+	font-size: 1rem;
+	padding-top: 1rem;
+
+	nav {
+		display: flex;
+		gap: 1.5rem;
+	}
 
 	nav > a {
-		margin: 0 0.5rem;
 		text-decoration: none;
+		color: var(--text-secondary);
+		font-weight: 500;
+		padding: 0.5rem 0;
+		position: relative;
+		transition: color 0.2s ease;
+	}
+
+	nav > a::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background-color: var(--accent);
+		transition: width 0.2s ease;
+	}
+
+	nav > a:hover {
+		color: var(--accent);
+	}
+
+	nav > a:hover::after {
+		width: 100%;
 	}
 }
 
@@ -36,33 +82,68 @@ section {
 }
 
 h1 {
-	font-size: clamp(1.5rem, 4vw, 2.7rem);
-	font-weight: 600;
-	color: #aaaab7;
-}
-
-h2 {
-	font-size: clamp(1.2rem, 3vw, 2.3rem);
-}
-
-h3 {
-	font-size: clamp(1rem, 2.5vw, 2rem);
-	font-weight: 600;
-}
-
-.greeting {
-	margin-top: 100px;
-	font-size: 3.5rem;
-	font-weight: 800;
-	color: #aaaab7;
-}
-
-.career {
+	font-family: var(--font-heading);
+	font-size: clamp(1.5rem, 4vw, 2.2rem);
+	font-weight: 700;
+	color: var(--text-primary);
+	letter-spacing: -0.02em;
 	margin-bottom: 1.5rem;
 }
 
-.explanation {
+h2 {
+	font-family: var(--font-heading);
+	font-size: clamp(1.2rem, 3vw, 1.8rem);
 	font-weight: 600;
+	color: var(--text-primary);
+	letter-spacing: -0.01em;
+}
+
+h3 {
+	font-family: var(--font-heading);
+	font-size: clamp(1rem, 2.5vw, 1.4rem);
+	font-weight: 600;
+	color: var(--text-secondary);
+}
+
+.greeting {
+	margin-top: 80px;
+	font-family: var(--font-heading);
+	font-size: clamp(2.5rem, 6vw, 3.5rem);
+	font-weight: 700;
+	color: var(--text-primary);
+	letter-spacing: -0.03em;
+}
+
+.greeting .tooltip {
+	color: var(--accent);
+}
+
+.career {
+	margin-bottom: 2rem;
+	padding: 1.5rem;
+	background-color: var(--bg-secondary);
+	border-radius: 12px;
+	border: 1px solid var(--border);
+}
+
+.career h3 {
+	color: var(--text-primary);
+	margin-bottom: 0.25rem;
+}
+
+.career p {
+	margin-bottom: 0.5rem;
+}
+
+.explanation {
+	font-weight: 500;
+	color: var(--text-secondary);
+}
+
+.tech-stack {
+	font-size: 0.9rem;
+	color: var(--text-muted);
+	font-family: var(--font-heading);
 }
 
 ul {
@@ -79,34 +160,60 @@ ul {
 }
 
 .about-me-keyword {
-	font-size: 1.6rem;
+	font-family: var(--font-heading);
+	font-size: 1.5rem;
 	font-weight: 600;
+	color: var(--text-primary);
 }
 
 footer {
 	display: flex;
 	justify-content: center;
-	column-gap: 0.8rem;
+	column-gap: 1rem;
 	margin-top: 40px;
-	padding: 25px 0px;
-	height: 100px;
-	border-top: 1px solid #9b9ba6;
+	padding: 30px 0px;
+	height: auto;
+	border-top: 1px solid var(--border);
 
 	a {
 		margin: 0 5px;
 		font-size: 0;
+		transition: transform 0.2s ease;
+	}
+
+	a:hover {
+		transform: translateY(-2px);
 	}
 }
 
 .footer-icon {
-	width: 22px;
-	height: 22px;
-	fill: #9b9ba6;
+	width: 24px;
+	height: 24px;
+	fill: var(--text-muted);
+	transition: fill 0.2s ease;
+}
+
+a:hover .footer-icon {
+	fill: var(--accent);
+}
+
+a {
+	color: var(--accent);
+	text-decoration: underline;
+	text-underline-offset: 0.15rem;
+	text-decoration-thickness: 1px;
+	text-decoration-color: var(--accent-light);
+	transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+a:hover {
+	color: var(--accent-dark);
+	text-decoration-color: var(--accent-dark);
 }
 
 .link {
-	color: #9b9ba6;
-	text-underline-offset: 0.1rem;
+	color: var(--accent);
+	text-underline-offset: 0.15rem;
 	text-decoration-thickness: 1px;
 }
 
@@ -117,14 +224,15 @@ footer {
 
 .tooltip .tooltip-text {
 	visibility: hidden;
-	padding: 4px 7px;
-	border-radius: 6px;
-	background-color: #777;
+	padding: 6px 10px;
+	border-radius: 8px;
+	background-color: var(--text-primary);
 	color: #fff;
 	text-align: center;
-	font-size: 0.4em;
-	font-weight: 400;
-	min-width: 60px;
+	font-family: var(--font-heading);
+	font-size: 0.35em;
+	font-weight: 500;
+	min-width: 70px;
 	white-space: nowrap;
 
 	/* Position the tooltip */
@@ -136,7 +244,7 @@ footer {
 
 	/* Add animation */
 	opacity: 0;
-	transition: opacity 0.3s;
+	transition: opacity 0.2s ease;
 }
 
 .tooltip:hover .tooltip-text {
@@ -150,19 +258,23 @@ footer {
 	}
 
 	section {
-		min-height: 130px;
+		min-height: auto;
 	}
 
 	h1 {
-		font-size: clamp(1.7rem, 5vw, 2.5rem);
+		font-size: clamp(1.4rem, 5vw, 1.8rem);
 	}
 
 	h2 {
-		font-size: clamp(1.5rem, 4vw, 2rem);
+		font-size: clamp(1.2rem, 4vw, 1.5rem);
 	}
 
 	h3 {
-		font-size: clamp(1.4rem, 3vw, 1.6rem);
+		font-size: clamp(1.1rem, 3vw, 1.3rem);
+	}
+
+	.greeting {
+		margin-top: 50px;
 	}
 
 	iframe {
@@ -170,16 +282,22 @@ footer {
 	}
 
 	.about-me-keyword {
-		font-size: 1.4rem;
+		font-size: 1.3rem;
+	}
+
+	.career {
+		padding: 1rem;
 	}
 
 	footer {
 		max-width: 100%;
-		padding: 15px 0px;
+		padding: 20px 0px;
 	}
 }
 
 .post-date {
-	color: #666;
+	font-family: var(--font-heading);
+	font-size: 0.9rem;
+	color: var(--text-muted);
 	margin-right: 1rem;
 }
