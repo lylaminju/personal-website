@@ -118,7 +118,7 @@ h3 {
 	line-height: 1.2;
 }
 
-.greeting .tooltip {
+.greeting .name {
 	color: var(--accent-bright);
 }
 
