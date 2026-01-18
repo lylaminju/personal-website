@@ -10,16 +10,17 @@ function createProjectBox(project) {
     <div class="project-image">
       <img src="${project.image || '../assets/default-project.png'}" alt="${
     project.title
-  }">
+  }" width="250" height="200" loading="lazy">
     </div>
     <div class="project-content">
       <div class="title-row">
-        <h3>${project.emoji} ${project.title}</h3>
+        <h2>${project.emoji} ${project.title}</h2>
         <ul>
           <li>
             <a target="_blank" href="${project.github}"
-              onclick="event.stopPropagation()">
-              <svg class="link-icon">
+              onclick="event.stopPropagation()"
+              aria-label="View ${project.title} on GitHub">
+              <svg class="link-icon" aria-hidden="true">
                 <use href="${iconPath}/github.svg#icon"></use>
               </svg>
             </a>
@@ -28,8 +29,9 @@ function createProjectBox(project) {
             project.website
               ? `
                   <li>
-                      <a target="_blank" href="${project.website}" onclick="event.stopPropagation()">
-                      <svg class="link-icon">
+                      <a target="_blank" href="${project.website}" onclick="event.stopPropagation()"
+                        aria-label="Visit ${project.title} website">
+                      <svg class="link-icon" aria-hidden="true">
                           <use href="${iconPath}/web.svg#icon"></use>
                       </svg>
                       </a>
@@ -41,8 +43,9 @@ function createProjectBox(project) {
             project.youtube
               ? `
                   <li>
-                      <a target="_blank" href="${project.youtube}" onclick="event.stopPropagation()">
-                      <svg class="link-icon">
+                      <a target="_blank" href="${project.youtube}" onclick="event.stopPropagation()"
+                        aria-label="Watch ${project.title} demo on YouTube">
+                      <svg class="link-icon" aria-hidden="true">
                           <use href="${iconPath}/youtube.svg#icon"></use>
                       </svg>
                       </a>

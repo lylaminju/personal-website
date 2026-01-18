@@ -15,18 +15,18 @@ class Footer extends HTMLElement {
 
 		this.innerHTML = `
       <footer>
-        <a target="blank" href="mailto:lylaminju@gmail.com">
-          <svg class="footer-icon">
+        <a target="_blank" href="mailto:lylaminju@gmail.com" aria-label="Send email">
+          <svg class="footer-icon" aria-hidden="true">
             <use href="${iconPath}/email.svg#icon"></use>
           </svg>
         </a>
-        <a target="blank" href="https://github.com/lylaminju">
-          <svg class="footer-icon">
+        <a target="_blank" href="https://github.com/lylaminju" aria-label="GitHub profile">
+          <svg class="footer-icon" aria-hidden="true">
             <use href="${iconPath}/github.svg#icon"></use>
           </svg>
         </a>
-        <a target="blank" href="https://www.linkedin.com/in/lylaminju">
-          <svg class="footer-icon">
+        <a target="_blank" href="https://www.linkedin.com/in/lylaminju" aria-label="LinkedIn profile">
+          <svg class="footer-icon" aria-hidden="true">
             <use href="${iconPath}/linkedin.svg#icon"></use>
           </svg>
         </a>

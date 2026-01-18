@@ -1,3 +1,8 @@
+/* Reserve space for projects to prevent CLS */
+#projects-container {
+  min-height: 200px;
+}
+
 .project-box {
   display: flex;
   gap: 0.5rem;
@@ -8,6 +13,8 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  /* Contain layout to prevent shifts */
+  contain: layout;
 
   &:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -55,7 +62,7 @@
   justify-content: space-between;
   align-items: baseline;
 
-  h3 {
+  h2 {
     margin: 0 1rem 0 0;
     font-family: var(--font-heading);
     font-size: 1.4rem;
@@ -107,7 +114,7 @@
     margin-top: 0.5rem;
   }
 
-  .title-row h3 {
+  .title-row h2 {
     font-size: 1.2rem;
   }
 }
