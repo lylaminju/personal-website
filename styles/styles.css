@@ -106,6 +106,58 @@ h3 {
 	color: var(--text-secondary);
 }
 
+.about-container {
+	display: flex;
+	gap: 3rem;
+	align-items: flex-start;
+	margin-top: 1rem;
+}
+
+.profile-photo {
+	width: 320px;
+	height: auto;
+	border-radius: 12px;
+	object-fit: cover;
+	flex-shrink: 0;
+	margin-top: 10px;
+}
+
+.about-content {
+	flex: 1;
+}
+
+.about-content h2 {
+	margin-bottom: 1rem;
+}
+
+.about-content p {
+	margin-bottom: 0.75rem;
+	color: var(--text-secondary);
+}
+
+.about-links {
+	margin-top: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.about-link-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.link-row {
+	display: flex;
+	gap: 1rem;
+}
+
+.link-row a {
+	font-family: var(--font-heading);
+	font-size: 0.95rem;
+}
+
 .greeting {
 	margin-top: 80px;
 	font-family: var(--font-heading);
@@ -165,9 +217,11 @@ ul {
 
 .about-me-keyword {
 	font-family: var(--font-heading);
-	font-size: 1.5rem;
+	font-size: 0.85rem;
 	font-weight: 600;
-	color: var(--text-primary);
+	color: var(--text-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
 }
 
 footer {
@@ -281,12 +335,23 @@ a:hover {
 		margin-top: 50px;
 	}
 
+	.about-container {
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.profile-photo {
+		width: 100%;
+		max-width: 400px;
+		margin-top: -10px;
+	}
+
 	iframe {
 		width: 100%;
 	}
 
 	.about-me-keyword {
-		font-size: 1.3rem;
+		font-size: 0.8rem;
 	}
 
 	.career {
