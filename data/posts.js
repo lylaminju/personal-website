@@ -43,4 +43,11 @@ export const posts = [
 			return slugify(this.title);
 		},
 	},
+	{
+		date: "2026-01-22",
+		title: "Unit Testing Methodologies",
+		get slug() {
+			return slugify(this.title);
+		},
+	},
 ];
