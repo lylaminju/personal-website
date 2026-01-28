@@ -1,5 +1,11 @@
 export const posts = [
 	{
+		"date": "2026-01-28",
+		"title": "Keep Your Identity Small",
+		"slug": "keep-your-identity-small",
+		"file": "keep-your-identity-small.md"
+	},
+	{
 		"date": "2026-01-22",
 		"title": "Unit Testing Methodologies",
 		"slug": "unit-testing-methodologies",
