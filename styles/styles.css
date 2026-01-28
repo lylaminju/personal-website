@@ -16,6 +16,23 @@
 	--font-body: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
 }
 
+html[data-theme="dark"] {
+	--accent: #22d3ee;
+	--accent-bright: #67e8f9;
+	--accent-light: #a5f3fc;
+	--accent-dark: #06b6d4;
+	--text-primary: #f1f5f9;
+	--text-secondary: #cbd5e1;
+	--text-muted: #94a3b8;
+	--bg-primary: #0f172a;
+	--bg-secondary: #1e293b;
+	--border: #334155;
+}
+
+html {
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 body {
 	display: flex;
 	flex-direction: column;
@@ -30,7 +47,7 @@ body {
 	color: var(--text-primary);
 }
 
-header,
+app-header,
 section,
 app-footer {
 	max-width: 900px;
@@ -39,43 +56,81 @@ app-footer {
 	margin: 0 auto;
 }
 
-header {
-	font-family: var(--font-heading);
-	font-size: 1rem;
-	padding-top: 1rem;
+app-header {
+	display: block;
+	margin-bottom: 1rem;
 
-	nav {
-		display: flex;
-		gap: 1.5rem;
-	}
-
-	nav > a {
-		text-decoration: none;
-		color: var(--text-secondary);
-		font-weight: 500;
-		padding: 0.5rem 0;
+	header {
 		position: relative;
-		transition: color 0.2s ease;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: var(--font-heading);
+		font-size: 1rem;
+		padding-top: 1rem;
 	}
+}
 
-	nav > a::after {
-		content: "";
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 0;
-		height: 2px;
-		background-color: var(--accent);
-		transition: width 0.2s ease;
-	}
+app-header nav {
+	display: flex;
+	gap: 1.5rem;
+}
 
-	nav > a:hover {
-		color: var(--accent);
-	}
+app-header nav > a {
+	text-decoration: none;
+	color: var(--text-secondary);
+	font-weight: 500;
+	padding: 0.5rem 0;
+	position: relative;
+	transition: color 0.2s ease;
+}
 
-	nav > a:hover::after {
-		width: 100%;
-	}
+app-header nav > a::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: var(--accent);
+	transition: width 0.2s ease;
+}
+
+app-header nav > a:hover {
+	color: var(--accent);
+}
+
+app-header nav > a:hover::after {
+	width: 100%;
+}
+
+#theme-toggle {
+	position: absolute;
+	right: 0;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0.5rem;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.2s ease;
+}
+
+#theme-toggle:hover {
+	background-color: var(--bg-secondary);
+}
+
+#theme-toggle svg {
+	width: 20px;
+	height: 20px;
+	fill: var(--text-secondary);
+	transition: fill 0.2s ease;
+}
+
+#theme-toggle:hover svg {
+	fill: var(--accent);
 }
 
 main {

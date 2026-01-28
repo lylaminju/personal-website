@@ -24,6 +24,10 @@ Personal portfolio website for Lyla (Minju) Park - a full-stack software enginee
 - CSS variables defined in `:root` for colors and fonts
 - Use flexbox for layouts, stack vertically on mobile
 
+### Code Organization
+- Avoid code duplication; prefer a single source of truth when there are no side effects
+- Extract repeated logic into shared files (e.g., `/utils/` for JS, CSS variables for styles)
+
 ### Commit Messages
 - Follow conventional commits (feat, fix, style, perf, refactor, chore, docs)
 - End with `Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>` when Claude contributes
