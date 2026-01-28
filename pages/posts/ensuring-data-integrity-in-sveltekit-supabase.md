@@ -1,5 +1,5 @@
 ---
-title: Ensuring Data Integrity in SvelteKit + Supabase: PostgreSQL Triggers vs Client-Side Transactions
+title: Ensuring data integrity in SvelteKit + Supabase
 date: 2025-05-22
 ---
 
