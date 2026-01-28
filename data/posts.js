@@ -1,6 +1,11 @@
 export const posts = [
 	{
 		"date": "2026-01-28",
+		"title": "Claude Code skills using metacognition",
+		"slug": "claude-code-skills-using-metacognition"
+	},
+	{
+		"date": "2026-01-28",
 		"title": "Keep Your Identity Small",
 		"slug": "keep-your-identity-small"
 	},
