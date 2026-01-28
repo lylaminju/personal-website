@@ -34,7 +34,27 @@ Based on patterns observed, suggest (in text, not auto-applied):
 - Permission additions for settings.local.json
 - Subagent configurations for common tasks
 
-### 3. Pickup Note
+### 3. Prompting Feedback
+Review the user's prompts throughout the session and provide constructive feedback:
+
+**Clarity & Specificity:**
+- Were requests clear enough to act on immediately?
+- Did vague requests cause back-and-forth clarification?
+- Could the user have provided more context upfront?
+
+**Efficiency:**
+- Did the user break large tasks into reasonable chunks?
+- Were there unnecessary intermediate prompts that could be combined?
+- Did the user leverage Claude's capabilities effectively (e.g., parallel tasks, batch requests)?
+
+**Best Practices:**
+- Note any particularly effective prompts as examples
+- Suggest specific rephrasing for prompts that could be improved
+- Highlight when more/less detail would have helped
+
+Be honest but constructive. The goal is to help the user become more effective at working with Claude.
+
+### 4. Pickup Note
 Write a brief 2-3 sentence note summarizing:
 - Where work left off
 - Any blocking issues or open questions
@@ -53,6 +73,9 @@ Write a brief 2-3 sentence note summarizing:
 
 ### Other Improvements
 [Aliases, permissions, etc. or "None identified"]
+
+## Prompting Feedback
+[Honest, constructive feedback on the user's prompts with specific examples and suggestions]
 
 ## Pickup Note
 [Brief note for resuming next session]
