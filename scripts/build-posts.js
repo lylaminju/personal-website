@@ -44,7 +44,6 @@ async function buildPosts() {
 			date: meta.date,
 			title: meta.title,
 			slug: slugify(meta.title),
-			file,
 		});
 	}
 

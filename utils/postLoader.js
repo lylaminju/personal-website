@@ -77,9 +77,7 @@ async function loadPost() {
   }
 
   try {
-    const { posts } = await import("../data/posts.js");
-    const post = posts.find((p) => p.slug === postSlug);
-    const markdownPath = `/pages/posts/${post.file}`;
+    const markdownPath = `/pages/posts/${postSlug}.md`;
     const markdown = await fetchMarkdown(markdownPath);
     const { content, metadata } = parseFrontmatter(markdown);
 
