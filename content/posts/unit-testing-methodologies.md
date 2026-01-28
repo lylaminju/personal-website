@@ -3,8 +3,6 @@ title: Unit Testing Methodologies
 date: 2026-01-22
 ---
 
-# Unit Testing Methodologies
-
 ## Background
 
 Before refactoring a project, I wrote unit tests to ensure behavior would be preserved. Here are the key methodologies I used.

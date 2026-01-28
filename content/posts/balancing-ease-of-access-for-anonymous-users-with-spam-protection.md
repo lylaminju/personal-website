@@ -3,8 +3,6 @@ title: Balancing Ease of Access for Anonymous Users with Spam Protection
 date: 2025-05-21
 ---
 
-# Balancing Ease of Access for Anonymous Users with Spam Protection
-
 ## The Problem
 
 For my personal project, [**ClimberzDay**](https://climberz.day), I built a platform where users can join one-day events without needing to log in, prioritizing a frictionless experience. However, this open access posed a challenge: preventing spam and duplicate registrations while keeping the process simple. I needed a lightweight solution to deter repeat submissions from anonymous users, while staying compliant with Canada's PIPEDA privacy regulations.

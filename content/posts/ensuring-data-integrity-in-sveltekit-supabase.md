@@ -3,8 +3,6 @@ title: Ensuring data integrity in SvelteKit + Supabase
 date: 2025-05-22
 ---
 
-# Ensuring Data Integrity in SvelteKit + Supabase: PostgreSQL Triggers vs Client-Side Transactions
-
 In modern web development, ensuring data integrity across related database tables is a critical challenge. For applications built with SvelteKit and Supabase, this often arises when synchronizing updates—for example, soft-deleting a user and their associated profile. In this post, I explore two approaches to manage such transactions: using a PostgreSQL trigger in Supabase versus handling multiple client-side queries with rollback logic in SvelteKit. I’ll compare their pros and cons, explain why I chose the trigger approach, and offer guidance for similar scenarios.
 
 ## The Challenge: Synchronizing Soft Deletes

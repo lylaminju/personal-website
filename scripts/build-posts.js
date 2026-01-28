@@ -95,6 +95,7 @@ function generatePostHtml(title, date, htmlContent, tags) {
       <div class="post-metadata">
         <post-date id="post-date">${date}</post-date>
       </div>
+      <h1>${title}</h1>
       <div id="blog-content">${htmlContent}</div>
       <div id="post-tags">${tagsHtml}</div>
     </section>

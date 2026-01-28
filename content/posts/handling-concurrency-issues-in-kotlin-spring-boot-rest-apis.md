@@ -4,8 +4,6 @@ date: 2025-05-30
 tags: Backend, Concurrency, REST APIs, Kotlin, Spring Boot, Spring Data JPA
 ---
 
-# Handling concurrency issues in Kotlin + Spring Boot REST APIs
-
 **Concurrency** issues occur when multiple threads or requests access and modify the same resource simultaneously, potentially leading to data corruption, race conditions, or inconsistent state.
 
 ## Common Concurrency Solutions

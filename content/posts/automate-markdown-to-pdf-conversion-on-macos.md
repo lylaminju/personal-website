@@ -3,8 +3,6 @@ title: Automate Markdown to PDF Conversion on macOS
 date: 2026-01-14
 ---
 
-# Automate Markdown to PDF Conversion on macOS
-
 Tired of manually running commands every time you update your markdown file? This guide shows you how to set up an automated workflow that converts markdown to PDF instantly when you save.
 
 ## What I'm Building
