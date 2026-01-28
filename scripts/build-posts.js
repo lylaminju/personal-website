@@ -21,7 +21,7 @@ const md = MarkdownIt({
 	}),
 });
 
-const POSTS_DIR = new URL("../pages/posts", import.meta.url).pathname;
+const POSTS_DIR = new URL("../content/posts", import.meta.url).pathname;
 const OUTPUT_DIR = new URL("../posts", import.meta.url).pathname;
 const DATA_FILE = new URL("../data/posts.js", import.meta.url).pathname;
 
