@@ -5,6 +5,8 @@ This blog is built with plain JS using [Web Components API](https://developer.mo
 
 🌐 https://lylamin.com
 
+Deployed on [Cloudflare Pages](https://pages.cloudflare.com/).
+
 ## How Blog Posts Work
 
 ```mermaid
@@ -26,7 +28,7 @@ flowchart TB
         slug[Generate slug from title]
         write["Write data/posts.js
         ―――――――――――――――
-        { date, title, slug, file }"]
+        { date, title, slug }"]
         stage[Stage data/posts.js]
         scan --> parse --> slug --> write --> stage
     end
@@ -37,22 +39,30 @@ flowchart TB
         components/blog-posts.js
         ―――――――――――――――
         imports data/posts.js
-        renders &lt;ul&gt; of post links"]
+        renders &lt;ul&gt; of post links
+        href='/posts/my-post'"]
 
         click_["User clicks a post
-        /pages/post.html?slug=my-post"]
+        /posts/my-post"]
+
+        rewrite["Cloudflare Rewrite
+        _redirects
+        ―――――――――――――――
+        /posts/* → /pages/post (200)
+        URL stays /posts/my-post
+        serves post.html content"]
 
         loader["Post Loader
         utils/postLoader.js
         ―――――――――――――――
-        slug → posts.find() → file
-        fetch .md → parse frontmatter
+        extract slug from URL path
+        fetch pages/posts/slug.md
         marked.js → HTML
         hljs → syntax highlighting"]
 
         page["Rendered Post Page"]
 
-        list --> click_ --> loader --> page
+        list --> click_ --> rewrite --> loader --> page
     end
 
     md -->|commit| scan
