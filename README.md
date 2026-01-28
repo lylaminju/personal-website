@@ -21,8 +21,6 @@ flowchart TB
     end
 
     subgraph Build["2. Build · git pre-commit hook"]
-        check{"Staged files include
-        pages/posts/*.md?"}
         scan[Scan pages/posts/*.md]
         parse[Parse frontmatter]
         slug[Generate slug from title]
@@ -30,8 +28,7 @@ flowchart TB
         ―――――――――――――――
         { date, title, slug, file }"]
         stage[Stage data/posts.js]
-        check -->|Yes| scan --> parse --> slug --> write --> stage
-        check -->|No| skip[Skip build]
+        scan --> parse --> slug --> write --> stage
     end
 
     subgraph Render["3. Render"]
@@ -58,7 +55,7 @@ flowchart TB
         list --> click_ --> loader --> page
     end
 
-    md --> scan
+    md -->|commit| scan
     write -.-> list
     write -.-> loader
     md -.->|fetched at runtime| loader

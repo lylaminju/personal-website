@@ -1,1 +1,1 @@
-/posts/:slug /pages/post.html?slug=:slug 200
+/posts/* /pages/post.html?slug=:splat 200
