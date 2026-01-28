@@ -1,4 +1,11 @@
 function extractSlugFromUrl() {
+  // Try path-based URL first: /posts/slug-name
+  const pathMatch = window.location.pathname.match(/^\/posts\/(.+)$/);
+  if (pathMatch) {
+    return pathMatch[1];
+  }
+
+  // Fallback to query parameter: ?slug=slug-name
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get("slug");
 }
