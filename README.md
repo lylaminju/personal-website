@@ -48,9 +48,9 @@ flowchart TB
         rewrite["Cloudflare Rewrite
         _redirects
         ―――――――――――――――
-        /posts/* → /pages/post (200)
-        URL stays /posts/my-post
-        serves post.html content"]
+        /posts/* → /pages/post
+        status 200 = rewrite
+        URL stays unchanged"]
 
         loader["Post Loader
         utils/postLoader.js
