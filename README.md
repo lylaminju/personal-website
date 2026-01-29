@@ -1,7 +1,7 @@
 # Personal website
 
-Welcome to my plain JS website!
-This blog is built with plain JS using [Web Components API](https://developer.mozilla.org/en-US/docs/Web/API/Web_components), without any frameworks
+Welcome to my vanilla JS website!
+This blog is built with HTML, CSS, and JS using the [Web Components API](https://developer.mozilla.org/en-US/docs/Web/API/Web_components), without any frameworks
 
 🌐 https://lylamin.com
 
