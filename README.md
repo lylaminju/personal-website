@@ -1,7 +1,7 @@
 # Personal website
 
 Welcome to my plain JS website!
-This blog is built with plain JS using [Web Components API](https://developer.mozilla.org/en-US/docs/Web/API/Web_components), without any framworks
+This blog is built with plain JS using [Web Components API](https://developer.mozilla.org/en-US/docs/Web/API/Web_components), without any frameworks
 
 🌐 https://lylamin.com
 
@@ -12,7 +12,7 @@ Deployed on [Cloudflare Pages](https://pages.cloudflare.com/).
 ```mermaid
 flowchart TB
     subgraph Write["1. Write"]
-        md["pages/posts/my-post.md
+        md["content/posts/my-post.md
         ―――――――――――――――
         ---
         title: My Post
@@ -22,18 +22,24 @@ flowchart TB
         # Content here..."]
     end
 
-    subgraph Build["2. Build · git pre-commit hook"]
-        scan[Scan pages/posts/*.md]
+    subgraph Build["2. Build · npm run build"]
+        scan[Scan content/posts/*.md]
         parse[Parse frontmatter]
         slug[Generate slug from title]
-        write["Write data/posts.js
+        render_md["markdown-it → HTML
+        hljs → syntax highlighting"]
+        write_html["Write posts/slug/index.html
+        ―――――――――――――――
+        Static HTML with
+        styles, header, footer"]
+        write_data["Write data/posts.js
         ―――――――――――――――
         { date, title, slug }"]
-        stage[Stage data/posts.js]
-        scan --> parse --> slug --> write --> stage
+        scan --> parse --> slug --> render_md --> write_html
+        render_md --> write_data
     end
 
-    subgraph Render["3. Render"]
+    subgraph Serve["3. Serve"]
         direction TB
         list["Blog Listing
         components/blog-posts.js
@@ -45,37 +51,26 @@ flowchart TB
         click_["User clicks a post
         /posts/my-post"]
 
-        rewrite["Cloudflare Rewrite
-        _redirects
+        static["Static HTML
+        posts/my-post/index.html
         ―――――――――――――――
-        /posts/* → /pages/post
-        status 200 = rewrite
-        URL stays unchanged"]
+        Pre-built at build time
+        No runtime processing"]
 
-        loader["Post Loader
-        utils/postLoader.js
-        ―――――――――――――――
-        extract slug from URL path
-        fetch pages/posts/slug.md
-        marked.js → HTML
-        hljs → syntax highlighting"]
-
-        page["Rendered Post Page"]
-
-        list --> click_ --> rewrite --> loader --> page
+        list --> click_ --> static
     end
 
-    md -->|commit| scan
-    write -.-> list
-    write -.-> loader
-    md -.->|fetched at runtime| loader
+    md -->|npm run build| scan
+    write_data -.-> list
+    write_html -.-> static
 
     style Write fill:#2d333b,stroke:#768390,color:#adbac7
     style Build fill:#1c2128,stroke:#768390,color:#adbac7
-    style Render fill:#1c2128,stroke:#768390,color:#adbac7
+    style Serve fill:#1c2128,stroke:#768390,color:#adbac7
     style md fill:#2d333b,stroke:#539bf5,color:#adbac7
-    style write fill:#2d333b,stroke:#57ab5a,color:#adbac7
-    style page fill:#2d333b,stroke:#57ab5a,color:#adbac7
+    style write_html fill:#2d333b,stroke:#57ab5a,color:#adbac7
+    style write_data fill:#2d333b,stroke:#57ab5a,color:#adbac7
+    style static fill:#2d333b,stroke:#57ab5a,color:#adbac7
 ```
 
 ## Reference
