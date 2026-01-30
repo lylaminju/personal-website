@@ -34,7 +34,6 @@ html {
 .heading-anchor {
   opacity: 0;
   margin-left: 0.5em;
-  text-decoration: none;
   color: var(--text-muted);
   transition: opacity 0.15s;
 }

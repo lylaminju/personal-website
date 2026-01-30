@@ -30,6 +30,7 @@ html[data-theme="dark"] {
 }
 
 html {
+	scroll-behavior: smooth;
 	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -149,6 +150,23 @@ h1 {
 	color: var(--text-primary);
 	letter-spacing: -0.02em;
 	margin-bottom: 1.5rem;
+}
+
+.anchor-link {
+	font-size: 0.75em;
+	font-weight: 400;
+	color: var(--text-muted);
+	opacity: 0;
+	transition: opacity 0.2s ease;
+	margin-left: 0.25rem;
+}
+
+h1:hover .anchor-link {
+	opacity: 1;
+}
+
+.anchor-link:hover {
+	color: var(--accent);
 }
 
 h2 {
