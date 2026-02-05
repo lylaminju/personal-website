@@ -89,7 +89,7 @@ ${postUrls}
 `;
 }
 
-function generatePostHtml(title, date, htmlContent, tags) {
+function generatePostHtml(title, date, htmlContent, tags, slug) {
 	const tagsHtml = tags
 		? tags
 				.split(", ")
@@ -97,12 +97,24 @@ function generatePostHtml(title, date, htmlContent, tags) {
 				.join(" ")
 		: "";
 
+	const postUrl = `${SITE_URL}/posts/${slug}/`;
+	const description = `${title} - A blog post by Lyla`;
+
 	return `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${title} - Lyla's Blog</title>
+    <meta name="description" content="${description}" />
+    <meta property="og:title" content="${title}" />
+    <meta property="og:description" content="${description}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="${postUrl}" />
+    <meta property="article:published_time" content="${date}" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="${title}" />
+    <meta name="twitter:description" content="${description}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="/styles/styles.css" />
@@ -177,6 +189,7 @@ async function buildPosts() {
 			metadata.date,
 			htmlContent,
 			metadata.tags,
+			slug,
 		);
 		await writeFile(join(postDir, "index.html"), html, "utf-8");
 
