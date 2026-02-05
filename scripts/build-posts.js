@@ -71,7 +71,7 @@ function generatePostHtml(title, date, htmlContent, tags) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="/styles/styles.css" />
     <link rel="stylesheet" href="/styles/blog-content.css" />
-    <link rel="icon" type="image/png" href="/assets/profile character.ico" />
+    <link rel="icon" type="image/png" href="/assets/favicon.ico" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css" />
   </head>
   <!-- Google tag (gtag.js) -->
