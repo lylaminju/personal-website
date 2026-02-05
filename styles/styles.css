@@ -448,3 +448,18 @@ a:hover {
 	color: var(--text-muted);
 	margin-right: 1rem;
 }
+
+.not-found {
+	text-align: center;
+	margin-top: 80px;
+}
+
+.not-found h1 {
+	font-size: clamp(4rem, 15vw, 8rem);
+	color: var(--text-muted);
+	margin-bottom: 0.5rem;
+}
+
+.not-found p {
+	color: var(--text-secondary);
+}
