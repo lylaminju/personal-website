@@ -25,6 +25,8 @@ const md = MarkdownIt({
 const POSTS_DIR = new URL("../content/posts", import.meta.url).pathname;
 const OUTPUT_DIR = new URL("../posts", import.meta.url).pathname;
 const DATA_FILE = new URL("../data/posts.js", import.meta.url).pathname;
+const SITEMAP_FILE = new URL("../sitemap.xml", import.meta.url).pathname;
+const SITE_URL = "https://lylamin.com";
 
 function slugify(text) {
 	return text
@@ -51,6 +53,40 @@ function parseFrontmatter(content) {
 	}, {});
 
 	return { metadata, content: markdownContent };
+}
+
+function generateSitemap(posts) {
+	const staticPages = [
+		{ loc: "/", priority: "1.0" },
+		{ loc: "/pages/about", priority: "0.8" },
+		{ loc: "/pages/blog", priority: "0.8" },
+	];
+
+	const staticUrls = staticPages
+		.map(
+			(page) => `  <url>
+    <loc>${SITE_URL}${page.loc}</loc>
+    <priority>${page.priority}</priority>
+  </url>`
+		)
+		.join("\n");
+
+	const postUrls = posts
+		.map(
+			(post) => `  <url>
+    <loc>${SITE_URL}/posts/${post.slug}/</loc>
+    <lastmod>${post.date}</lastmod>
+    <priority>0.6</priority>
+  </url>`
+		)
+		.join("\n");
+
+	return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${staticUrls}
+${postUrls}
+</urlset>
+`;
 }
 
 function generatePostHtml(title, date, htmlContent, tags) {
@@ -159,8 +195,13 @@ async function buildPosts() {
 	const output = `export const posts = ${JSON.stringify(posts, null, "\t")};\n`;
 	await writeFile(DATA_FILE, output, "utf-8");
 
+	// Generate sitemap
+	const sitemap = generateSitemap(posts);
+	await writeFile(SITEMAP_FILE, sitemap, "utf-8");
+
 	console.log(`\nGenerated ${posts.length} static posts`);
 	console.log(`Updated ${DATA_FILE}`);
+	console.log(`Updated ${SITEMAP_FILE}`);
 }
 
 buildPosts();
