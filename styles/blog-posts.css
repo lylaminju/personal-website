@@ -19,7 +19,10 @@
 }
 
 .post-link {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
   text-decoration: none;
   color: inherit;
   transition: transform 0.2s ease;
@@ -37,13 +40,23 @@
   font-family: var(--font-heading);
   font-size: 1.2rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
   color: var(--text-primary);
   transition: color 0.2s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
 }
 
 .post-date {
   font-family: var(--font-heading);
   font-size: 0.85rem;
   color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .post-title {
+    font-size: 1rem;
+  }
 }
