@@ -10,23 +10,14 @@ class ProjectList extends HTMLElement {
 	}
 
 	getIconPath() {
-		// Adjust path based on page location
-		return window.location.pathname.includes("/pages/")
-			? "../assets/icons"
-			: "./assets/icons";
+		return "./assets/icons";
 	}
 
 	getImagePath(imagePath) {
 		if (!imagePath) {
-			return window.location.pathname.includes("/pages/")
-				? "../assets/default-project.png"
-				: "./assets/default-project.png";
+			return "./assets/default-project.png";
 		}
-		// Image paths in data start with '../assets/', adjust for root
-		if (window.location.pathname.includes("/pages/")) {
-			return imagePath;
-		}
-		return imagePath.replace("../assets/", "./assets/");
+		return imagePath;
 	}
 
 	createProjectBox(project) {

@@ -16,8 +16,8 @@ class Header extends HTMLElement {
       <header>
         <nav>
           <a class="link" href="${basePath}index.html">Home</a>
-          <a class="link" href="${basePath}pages/blog.html">Blog</a>
-          <a class="link" href="${basePath}pages/about.html">About</a>
+          <a class="link" href="${basePath}blog.html">Blog</a>
+          <a class="link" href="${basePath}about.html">About</a>
         </nav>
         <button id="theme-toggle" aria-label="Toggle dark mode">
           <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

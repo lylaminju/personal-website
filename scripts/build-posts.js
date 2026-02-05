@@ -58,8 +58,8 @@ function parseFrontmatter(content) {
 function generateSitemap(posts) {
 	const staticPages = [
 		{ loc: "/", priority: "1.0" },
-		{ loc: "/pages/about", priority: "0.8" },
-		{ loc: "/pages/blog", priority: "0.8" },
+		{ loc: "/about", priority: "0.8" },
+		{ loc: "/blog", priority: "0.8" },
 	];
 
 	const staticUrls = staticPages

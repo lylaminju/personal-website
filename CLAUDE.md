@@ -6,7 +6,7 @@ Personal portfolio website for Lyla (Minju) Park - a full-stack software enginee
 
 - `/assets/` - Images and icons
 - `/components/` - Web components (header, footer, blog-posts)
-- `/pages/` - HTML pages (about, blog, posts)
+- Root HTML pages: `index.html`, `about.html`, `blog.html`, `404.html`
 - `/styles/` - CSS files
 - `/utils/` - JavaScript utilities
 
