@@ -2,7 +2,7 @@ export const projects = [
 	{
 		title: "ClimberzDay",
 		emoji: "🧗",
-		image: "../assets/project-images/climberzday-preview.jpg",
+		image: "../assets/project-images/climberzday-preview.webp",
 		github: "https://github.com/lylaminju/climbers",
 		website: "https://climberz.day",
 		description:
@@ -13,7 +13,7 @@ export const projects = [
 	{
 		title: "Re:Mem",
 		emoji: "📝",
-		image: "../assets/project-images/remem-calendar.png",
+		image: "../assets/project-images/remem-calendar.webp",
 		github: "https://github.com/daily-journey/remem",
 		website: "https://daily-journey.github.io/remem",
 		description:
@@ -23,7 +23,7 @@ export const projects = [
 	{
 		title: "Climick",
 		emoji: "🎮",
-		image: "../assets/project-images/climick-preview.jpg",
+		image: "../assets/project-images/climick-preview.webp",
 		github: "https://github.com/lylaminju/climick-client",
 		website: "https://climick.netlify.app",
 		description: "Climbing web game without external physics libraries",
@@ -34,7 +34,7 @@ export const projects = [
 	{
 		title: "Reactree",
 		emoji: "🌳",
-		image: "../assets/project-images/reactree-preview.png",
+		image: "../assets/project-images/reactree-preview.webp",
 		github: "https://github.com/lylaminju/reactree-frontend",
 		description:
 			"Electron app that visualizes the component hierarchy of a React project",
