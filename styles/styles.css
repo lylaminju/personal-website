@@ -442,12 +442,6 @@ a:hover {
 	}
 }
 
-.post-date {
-	font-family: var(--font-heading);
-	font-size: 0.9rem;
-	color: var(--text-muted);
-	margin-right: 1rem;
-}
 
 .not-found {
 	text-align: center;

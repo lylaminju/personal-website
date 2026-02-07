@@ -2,16 +2,28 @@
   margin: 2rem 0;
 }
 
+.posts-year {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin: 2rem 0 1rem;
+}
+
+.posts-year:first-child {
+  margin-top: 0;
+}
+
 .posts-list {
   list-style: none;
   padding: 0;
-  margin: 1.5rem 0;
+  margin: 0 0 1rem;
 }
 
 .post-item {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   border-bottom: 1px solid var(--border);
-  padding-bottom: 1.5rem;
+  padding-bottom: 1rem;
 }
 
 .post-item:last-child {
@@ -26,10 +38,6 @@
   text-decoration: none;
   color: inherit;
   transition: transform 0.2s ease;
-}
-
-.post-link:hover {
-  transform: translateX(5px);
 }
 
 .post-link:hover .post-title {

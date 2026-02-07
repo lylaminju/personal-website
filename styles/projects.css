@@ -17,8 +17,9 @@
   contain: layout;
 
   &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
+    border-color: var(--accent);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 0 8px rgba(8, 145, 162, 0.15);
+    border-width: 1.5px;
   }
 }
 
