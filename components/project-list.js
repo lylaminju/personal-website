@@ -25,7 +25,7 @@ class ProjectList extends HTMLElement {
 		const imagePath = this.getImagePath(project.image);
 
 		return `
-			<div class="project-box" onclick="window.open('${project.website || project.github}', '_blank')">
+			<div class="project-box">
 				<div class="project-image">
 					<img src="${imagePath}" alt="${project.title}" width="250" height="200" loading="lazy">
 				</div>
