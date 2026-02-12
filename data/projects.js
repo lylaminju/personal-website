@@ -1,5 +1,14 @@
 export const projects = [
 	{
+		title: "Claude Token Cat",
+		emoji: "🐱",
+		image: "./assets/project-images/claude-token-cat-preview.webp",
+		github: "https://github.com/lylaminju/claude-token-cat",
+		description:
+			"macOS menu bar app that visualizes Claude API usage as an animated pixel art cat whose behavior changes with your utilization",
+		techStack: "Swift, SwiftUI",
+	},
+	{
 		title: "ClimberzDay",
 		emoji: "🧗",
 		image: "./assets/project-images/climberzday-preview.webp",
